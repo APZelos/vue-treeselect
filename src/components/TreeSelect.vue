@@ -17,6 +17,15 @@ export default {
     name: {
       type: String,
       default: 'values'
+    },
+    /**
+     * A short hint that will be displayed when no value is selected.
+     *
+     * @type {String}
+     */
+    placeholder: {
+      type: String,
+      default: 'Please select an option.'
     }
   },
   data() {
