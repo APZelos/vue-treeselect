@@ -8,8 +8,18 @@
 export default {
   name: 'TreeSelect',
   props: {
+    /**
+     * The name that will be used to reference the inputs that 
+     * holds the values and the data after the form submission.
+     *
+     * @type {String}
+     */
+    name: {
+      type: String,
+      default: 'values'
+    }
   },
-  data () {
+  data() {
     return {
       msg: 'TreeSelect'
     }
