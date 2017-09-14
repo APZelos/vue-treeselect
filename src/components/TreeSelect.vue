@@ -7,6 +7,8 @@
 <script>
 export default {
   name: 'TreeSelect',
+  props: {
+  },
   data () {
     return {
       msg: 'TreeSelect'
