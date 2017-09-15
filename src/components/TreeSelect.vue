@@ -66,6 +66,15 @@ export default {
     options: {
       type: Array,
       required: true
+    },
+    /**
+     * The name of the property that holds the identifier value of each option.
+     * 
+     * @type {String}
+     */
+    idProp: {
+      type: String,
+      default: 'id'
     }
   },
   data() {
