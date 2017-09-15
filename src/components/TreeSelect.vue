@@ -44,6 +44,15 @@ export default {
     searchable: {
       type: Boolean,
       default: false
+    },
+    /**
+     * A short hint that will be displayed before a search query is given.
+     *
+     * @type {String}
+     */
+    searchPlaceholder: {
+      type: String,
+      default: 'Type to search'
     }
   },
   data() {
