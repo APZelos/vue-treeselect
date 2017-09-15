@@ -53,6 +53,19 @@ export default {
     searchPlaceholder: {
       type: String,
       default: 'Type to search'
+    },
+    /**
+     * The available options. 
+     * An array of objects with three properties: 
+     *  * an identifier (example: option.id), 
+     *  * a label (example option.label) and 
+     *  * an array of children (example option.children), if the option has children.
+     * 
+     * @type {Array}
+     */
+    options: {
+      type: Array,
+      required: true
     }
   },
   data() {
