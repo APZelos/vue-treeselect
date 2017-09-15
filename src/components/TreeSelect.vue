@@ -35,6 +35,15 @@ export default {
     disabled: {
       type: Boolean,
       default: false
+    },
+    /**
+     * Indicates if there will be a search capability.
+     *
+     * @type {Boolean}
+     */
+    searchable: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
