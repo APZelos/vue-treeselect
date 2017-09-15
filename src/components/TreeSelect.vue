@@ -75,6 +75,15 @@ export default {
     idProp: {
       type: String,
       default: 'id'
+    },
+    /**
+     * The name of the property that holds the label value of each option.
+     * 
+     * @type {String}
+     */
+    labelProp: {
+      type: String,
+      default: 'label'
     }
   },
   data() {
