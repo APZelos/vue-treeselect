@@ -84,6 +84,16 @@ export default {
     labelProp: {
       type: String,
       default: 'label'
+    },
+    /**
+     * The name of the property that holds the children array of each option, 
+     * if the option has any children.
+     * 
+     * @type {String}
+     */
+    childrenProp: {
+      type: String,
+      default: 'children'
     }
   },
   data() {
