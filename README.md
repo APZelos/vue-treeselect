@@ -1,6 +1,6 @@
 # vue-treeselect
 
-> A tree dropdown component for vue.
+> A tree structure multi-select drop-down component.
 
 ## Build Setup
 
