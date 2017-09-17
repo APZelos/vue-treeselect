@@ -2,6 +2,7 @@
   <div id="app">
     <img src="./assets/logo.png">
     <TreeSelect
+      class="center"
       :options="options"
     ></TreeSelect>
   </div>
@@ -31,5 +32,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.center {
+  margin: 0 auto;
 }
 </style>
