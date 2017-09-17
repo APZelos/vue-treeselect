@@ -94,6 +94,16 @@ export default {
     childrenProp: {
       type: String,
       default: 'children'
+    },
+    /**
+     * Holds the selected value, 
+     * an array that contains the value of the idProp of the selected options.
+     * 
+     * @type {Array}
+     */
+    value: {
+      type: Array,
+      default: []
     }
   },
   data() {
