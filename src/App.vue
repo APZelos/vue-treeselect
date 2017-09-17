@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <TreeSelect></TreeSelect>
+    <TreeSelect
+      :options="options"
+    ></TreeSelect>
   </div>
 </template>
 
@@ -12,6 +14,11 @@ export default {
   name: 'app',
   components: {
     TreeSelect
+  },
+  data () {
+    return {
+      options: []
+    }
   }
 }
 </script>
