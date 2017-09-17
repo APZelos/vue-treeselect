@@ -130,7 +130,7 @@ $padding: 10px;
   &__select {
     width: 100%;
     height: 100%;
-    min-height: 42px;
+    min-height: $size-height;
     padding: $padding;
   }
 }
