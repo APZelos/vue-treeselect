@@ -1,7 +1,6 @@
 <template>
   <div class="treeselect">
     <div class="treeselect__select">
-
     </div>
   </div>
 </template>
@@ -122,8 +121,16 @@ $size-height: 42px;
 $padding: 10px;
 
 .treeselect {
+  * {
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;  
+  }
+
   &__select {
     width: 100%;
+    height: 100%;
+    min-height: 42px;
     padding: $padding;
   }
 }
