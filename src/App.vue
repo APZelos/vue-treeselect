@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <TreeSelect
-      class="center"
-      :options="options"
-    ></TreeSelect>
+    <TreeSelect 
+      class="form-control center"
+      :options="options">
+    </TreeSelect>
   </div>
 </template>
 
@@ -36,5 +36,10 @@ export default {
 
 .center {
   margin: 0 auto;
+}
+
+.form-control {
+  width: 300px;
+  height: 42px;
 }
 </style>
