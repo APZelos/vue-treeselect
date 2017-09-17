@@ -11,7 +11,7 @@ export default {
   name: 'TreeSelect',
   props: {
     /**
-     * The name that will be used to reference the inputs that 
+     * The name that will be used to reference the inputs that
      * holds the values and the data after the form submission.
      *
      * @type {String}
@@ -57,12 +57,12 @@ export default {
       default: 'Type to search'
     },
     /**
-     * The available options. 
-     * An array of objects with three properties: 
-     *  * an identifier (example: option.id), 
-     *  * a label (example option.label) and 
+     * The available options.
+     * An array of objects with three properties:
+     *  * an identifier (example: option.id),
+     *  * a label (example option.label) and
      *  * an array of children (example option.children), if the option has children.
-     * 
+     *
      * @type {Array}
      */
     options: {
@@ -71,7 +71,7 @@ export default {
     },
     /**
      * The name of the property that holds the identifier value of each option.
-     * 
+     *
      * @type {String}
      */
     idProp: {
@@ -80,7 +80,7 @@ export default {
     },
     /**
      * The name of the property that holds the label value of each option.
-     * 
+     *
      * @type {String}
      */
     labelProp: {
@@ -88,9 +88,9 @@ export default {
       default: 'label'
     },
     /**
-     * The name of the property that holds the children array of each option, 
+     * The name of the property that holds the children array of each option,
      * if the option has any children.
-     * 
+     *
      * @type {String}
      */
     childrenProp: {
@@ -98,17 +98,17 @@ export default {
       default: 'children'
     },
     /**
-     * Holds the selected value, 
+     * Holds the selected value,
      * an array that contains the value of the idProp of the selected options.
-     * 
+     *
      * @type {Array}
      */
     value: {
       type: Array,
-      default: []
+      default: null
     }
   },
-  data() {
+  data () {
     return {
       msg: 'TreeSelect'
     }
@@ -117,8 +117,9 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="scss" scoped>
+<style lang="scss"  scoped>
 .treeselect {
-  &__select {}
+  &__select {
+  }
 }
 </style>
