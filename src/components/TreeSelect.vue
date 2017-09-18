@@ -49,11 +49,11 @@ export default {
      * Indicates if there will be a search capability.
      *
      * @type {Boolean}
-     * @default false
+     * @default true
      */
     searchable: {
       type: Boolean,
-      default: false
+      default: true
     },
     /**
      * A short hint that will be displayed before a search query is given.
