@@ -148,7 +148,7 @@ export default {
      * @returns {Boolen} True if any option is selected.
      */
     isAnyOptionSelected: function () {
-      return this.selectedOptions && this.selectedOptions.lenght > 0;
+      return this.selectedOptions && this.selectedOptions.lenght > 0
     }
   }
 }
