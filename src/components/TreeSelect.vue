@@ -109,6 +109,12 @@ export default {
   },
   data () {
     return {
+      /**
+       * An array of all the selected options objects.
+       *
+       * @type {Array}
+       */
+      selectedOptions: [],
       msg: 'TreeSelect'
     }
   }
