@@ -147,7 +147,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss"  scoped>
 $size-height: 42px;
-$padding: 10px;
+$padding: 5px 10px;
 
 .treeselect {
   * {
