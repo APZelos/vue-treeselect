@@ -115,6 +115,12 @@ export default {
        * @type {Array}
        */
       selectedOptions: [],
+      /**
+       * Indicates if the drop-down is open.
+       *
+       * @type {Boolean}
+       */
+      isOpen: false,
       msg: 'TreeSelect'
     }
   }
