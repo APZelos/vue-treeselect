@@ -3,6 +3,7 @@
     <img src="./assets/logo.png">
     <TreeSelect 
       class="form-control center"
+      :searchable="searchable"
       :options="options">
     </TreeSelect>
   </div>
@@ -18,7 +19,8 @@ export default {
   },
   data () {
     return {
-      options: []
+      options: [],
+      searchable: true
     }
   }
 }
