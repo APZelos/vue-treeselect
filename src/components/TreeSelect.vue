@@ -121,6 +121,12 @@ export default {
        * @type {Boolean}
        */
       isOpen: false,
+      /**
+       * The query given by the user to filter the options.
+       *
+       * @type {String}
+       */
+      searchQuery: '',
       msg: 'TreeSelect'
     }
   }
