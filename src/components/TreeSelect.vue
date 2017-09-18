@@ -159,10 +159,13 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss"  scoped>
+$font-size: 16px;
 $size-height: 42px;
 $padding: 5px 10px;
 
 .treeselect {
+  font-size: $font-size;
+
   * {
     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
@@ -175,12 +178,14 @@ $padding: 5px 10px;
     height: 100%;
     min-height: $size-height;
     padding: $padding;
+    font-size: inherit;
 
     input {
       border: none;
       height: 100%;
       max-width: 100%;
       float: left;
+      font-size: inherit;
     }
   }
 }
