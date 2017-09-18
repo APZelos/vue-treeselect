@@ -14,6 +14,7 @@ export default {
      * holds the values and the data after the form submission.
      *
      * @type {String}
+     * @default 'values'
      */
     name: {
       type: String,
@@ -23,6 +24,7 @@ export default {
      * A short hint that will be displayed when no value is selected.
      *
      * @type {String}
+     * @default 'Please select an option.'
      */
     placeholder: {
       type: String,
@@ -32,6 +34,7 @@ export default {
      * Indicates if the dropdown element will be disabled.
      *
      * @type {Boolean}
+     * @default false
      */
     disabled: {
       type: Boolean,
@@ -41,6 +44,7 @@ export default {
      * Indicates if there will be a search capability.
      *
      * @type {Boolean}
+     * @default false
      */
     searchable: {
       type: Boolean,
@@ -50,6 +54,7 @@ export default {
      * A short hint that will be displayed before a search query is given.
      *
      * @type {String}
+     * @default 'Type to search'
      */
     searchPlaceholder: {
       type: String,
@@ -72,6 +77,7 @@ export default {
      * The name of the property that holds the identifier value of each option.
      *
      * @type {String}
+     * @default 'id'
      */
     idProp: {
       type: String,
@@ -81,6 +87,7 @@ export default {
      * The name of the property that holds the label value of each option.
      *
      * @type {String}
+     * @default 'label'
      */
     labelProp: {
       type: String,
@@ -91,6 +98,7 @@ export default {
      * if the option has any children.
      *
      * @type {String}
+     * @default 'children'
      */
     childrenProp: {
       type: String,
@@ -101,6 +109,7 @@ export default {
      * an array that contains the value of the idProp of the selected options.
      *
      * @type {Array}
+     * @default null
      */
     value: {
       type: Array,
@@ -113,18 +122,21 @@ export default {
        * An array of all the selected options objects.
        *
        * @type {Array}
+       * @default []
        */
       selectedOptions: [],
       /**
        * Indicates if the drop-down is open.
        *
        * @type {Boolean}
+       * @default false
        */
       isOpen: false,
       /**
        * The query given by the user to filter the options.
        *
        * @type {String}
+       * @default ''
        */
       searchQuery: ''
     }
