@@ -33,7 +33,7 @@ export default {
      */
     placeholder: {
       type: String,
-      default: 'Please select an option.'
+      default: 'Please select an option'
     },
     /**
      * Indicates if the dropdown element will be disabled.
