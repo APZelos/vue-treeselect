@@ -1,6 +1,9 @@
 <template>
   <div class="treeselect">
     <div class="treeselect__select">
+      <input v-if="searchable" 
+        v-model="searchQuery"
+        :placeholder="searchPlaceholder">
     </div>
   </div>
 </template>
@@ -172,6 +175,13 @@ $padding: 5px 10px;
     height: 100%;
     min-height: $size-height;
     padding: $padding;
+
+    input {
+      border: none;
+      height: 100%;
+      max-width: 100%;
+      float: left;
+    }
   }
 }
 </style>
