@@ -140,6 +140,16 @@ export default {
        */
       searchQuery: ''
     }
+  },
+  computed: {
+    /**
+     * Indicates if any option is selected
+     *
+     * @returns {Boolen} True if any option is selected.
+     */
+    isAnyOptionSelected: function () {
+      return this.selectedOptions && this.selectedOptions.lenght > 0;
+    }
   }
 }
 </script>
