@@ -2,8 +2,13 @@
   <div class="treeselect">
     <div class="treeselect__select">
       <input v-if="searchable" 
+        class="treeselect__placeholder"
         v-model="searchQuery"
         :placeholder="searchPlaceholder">
+      <input v-if="!searchable && !isAnyOptionSelected"
+        class="treeselect__placeholder"
+        :placeholder="placeholder"
+        disabled />
     </div>
   </div>
 </template>
@@ -186,6 +191,10 @@ $padding: 5px 10px;
       max-width: 100%;
       float: left;
       font-size: inherit;
+
+      &:disabled {
+        cursor: pointer;
+      }
     }
   }
 }
