@@ -126,8 +126,7 @@ export default {
        *
        * @type {String}
        */
-      searchQuery: '',
-      msg: 'TreeSelect'
+      searchQuery: ''
     }
   }
 }
