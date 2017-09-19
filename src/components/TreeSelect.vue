@@ -1,11 +1,13 @@
 <template>
   <div class="treeselect">
     <div class="treeselect__select">
+      <!-- SEARCH INPUT / PLACEHOLDER START -->
       <input v-if="searchable || !isAnyOptionSelected" 
         class="treeselect__placeholder"
         v-model="searchQuery"
         :placeholder="searchable ? searchPlaceholder : placeholder"
         :disabled="!searchable">
+      <!-- SEARCH INPUT / PLACEHOLDER END -->
     </div>
   </div>
 </template>
