@@ -182,7 +182,7 @@ $padding: 5px 10px;
     padding: $padding;
     font-size: inherit;
 
-    input {
+    input.treeselect__placeholder {
       border: none;
       height: 100%;
       max-width: 100%;
