@@ -169,7 +169,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss"  scoped>
 $font-size: 16px;
-$size-height: 42px;
 $padding: 5px;
 $padding--l: 10px;
 
