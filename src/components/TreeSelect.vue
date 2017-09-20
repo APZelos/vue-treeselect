@@ -162,6 +162,14 @@ export default {
     isAnyOptionSelected: function () {
       return this.selectedOptions && this.selectedOptions.lenght > 0
     }
+  },
+  methods: {
+    /**
+     * Sets isOpen data to true, which opens the drop-down.
+     */
+    openDropdown: function () {
+      this.isOpen = true
+    }
   }
 }
 </script>
