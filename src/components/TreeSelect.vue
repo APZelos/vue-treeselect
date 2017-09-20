@@ -201,6 +201,8 @@ $padding--l: 10px;
       border: none;
       height: 100%;
       max-width: 100%;
+      padding-top: $padding;
+      padding-bottom: $padding;
       float: left;
       font-size: inherit;
 
