@@ -182,6 +182,13 @@ $padding: 5px 10px;
     box-sizing: border-box;  
   }
 
+  .clearfix,
+  &.clearfix {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
   &__select {
     border-bottom: 1px solid gray;
     width: 100%;
