@@ -42,6 +42,5 @@ export default {
 
 .form-control {
   width: 300px;
-  height: 42px;
 }
 </style>
