@@ -173,6 +173,7 @@ $size-height: 42px;
 $padding: 5px 10px;
 
 .treeselect {
+  position: relative;
   font-size: $font-size;
 
   * {
