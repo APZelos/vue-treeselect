@@ -193,7 +193,6 @@ $padding: 5px 10px;
     border-bottom: 1px solid gray;
     width: 100%;
     height: 100%;
-    min-height: $size-height;
     padding: $padding;
     font-size: inherit;
 
