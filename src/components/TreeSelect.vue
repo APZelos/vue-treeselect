@@ -169,8 +169,8 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss"  scoped>
 $font-size: 16px;
-$padding: 5px;
-$padding--l: 10px;
+$space: 5px;
+$space--l: 10px;
 
 .treeselect {
   position: relative;
@@ -193,15 +193,15 @@ $padding--l: 10px;
     border-bottom: 1px solid gray;
     width: 100%;
     height: 100%;
-    padding: $padding $padding--l;
+    padding: $space $space--l;
     font-size: inherit;
 
     input.treeselect__placeholder {
       border: none;
       height: 100%;
       max-width: 100%;
-      padding-top: $padding;
-      padding-bottom: $padding;
+      padding-top: $space;
+      padding-bottom: $space;
       float: left;
       font-size: inherit;
 
