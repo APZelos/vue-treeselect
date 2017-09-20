@@ -170,7 +170,8 @@ export default {
 <style lang="scss"  scoped>
 $font-size: 16px;
 $size-height: 42px;
-$padding: 5px 10px;
+$padding: 5px;
+$padding--l: 10px;
 
 .treeselect {
   position: relative;
@@ -193,7 +194,7 @@ $padding: 5px 10px;
     border-bottom: 1px solid gray;
     width: 100%;
     height: 100%;
-    padding: $padding;
+    padding: $padding $padding--l;
     font-size: inherit;
 
     input.treeselect__placeholder {
