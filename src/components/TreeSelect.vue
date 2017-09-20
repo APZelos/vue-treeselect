@@ -216,6 +216,7 @@ $space--l: 10px;
     position: absolute;
     width: 100%;
     min-height: $space--l;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
   }
 }
 </style>
