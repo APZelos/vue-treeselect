@@ -6,7 +6,7 @@
         class="treeselect__placeholder"
         v-model="searchQuery"
         :placeholder="searchable ? searchPlaceholder : placeholder"
-        :disabled="!searchable" />
+        :readonly="!searchable" />
       <!-- SEARCH INPUT / PLACEHOLDER END -->
     </div>
     <!-- DROPDOWN START -->
