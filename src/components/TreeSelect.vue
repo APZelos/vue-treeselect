@@ -1,6 +1,6 @@
 <template>
   <div class="treeselect">
-    <div class="treeselect__select">
+    <div class="treeselect__select clearfix">
       <!-- SEARCH INPUT / PLACEHOLDER START -->
       <input v-if="searchable || !isAnyOptionSelected" 
         class="treeselect__placeholder"
