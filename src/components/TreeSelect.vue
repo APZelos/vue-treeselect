@@ -9,6 +9,11 @@
         :disabled="!searchable" />
       <!-- SEARCH INPUT / PLACEHOLDER END -->
     </div>
+    <!-- DROPDOWN START -->
+    <div v-show="isOpen" class="treeselect__dropdown">
+
+    </div>
+    <!-- DROPDOWN END -->
   </div>
 </template>
 
@@ -195,6 +200,12 @@ $padding: 5px 10px;
         cursor: pointer;
       }
     }
+  }
+
+  &__dropdown {
+    z-index: 999;
+    position: absolute;
+    width: 100%;
   }
 }
 </style>
