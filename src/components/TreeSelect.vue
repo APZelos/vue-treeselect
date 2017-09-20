@@ -215,6 +215,7 @@ $space--l: 10px;
     z-index: 999;
     position: absolute;
     width: 100%;
+    min-height: $space--l;
   }
 }
 </style>
