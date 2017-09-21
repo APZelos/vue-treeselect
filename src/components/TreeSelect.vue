@@ -169,6 +169,12 @@ export default {
      */
     openDropdown: function () {
       this.isOpen = true
+    },
+    /**
+     * Sets isOpen data to false, which closes the drop-down.
+     */
+    closeDropdown () {
+      this.isOpen = false
     }
   }
 }
