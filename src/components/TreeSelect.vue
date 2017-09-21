@@ -6,7 +6,10 @@
         class="treeselect__placeholder"
         v-model="searchQuery"
         :placeholder="searchable ? searchPlaceholder : placeholder"
-        :readonly="!searchable" />
+        :readonly="!searchable"
+        @focus="openDropdown"
+        @click="openDropdown"
+        @keyup.esc="closeDropdown" />
       <!-- SEARCH INPUT / PLACEHOLDER END -->
     </div>
     <!-- DROPDOWN START -->
