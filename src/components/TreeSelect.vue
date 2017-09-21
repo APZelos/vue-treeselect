@@ -159,7 +159,7 @@ export default {
      *
      * @returns {Boolean} True if any option is selected.
      */
-    isAnyOptionSelected: function () {
+    isAnyOptionSelected () {
       return this.selectedOptions && this.selectedOptions.length > 0
     }
   },
@@ -167,7 +167,7 @@ export default {
     /**
      * Sets isOpen data to true, which opens the drop-down.
      */
-    openDropdown: function () {
+    openDropdown () {
       this.isOpen = true
     },
     /**
