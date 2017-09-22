@@ -158,6 +158,13 @@ export default {
   },
   computed: {
     /**
+     * Indicates if a search query is provided.
+     * (a search happening right now)
+     */
+    isSearching () {
+      return !!this.searchQuery && this.searchQuery.length > 0
+    },
+    /**
      * Indicates if any option is selected
      *
      * @returns {Boolean} True if any option is selected.
