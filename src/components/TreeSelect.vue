@@ -165,6 +165,15 @@ export default {
       return !!this.searchQuery && this.searchQuery.length > 0
     },
     /**
+     * An array that contains the value of the idProp of the selected options,
+     * produced from the given value.
+     */
+    values () {
+      if (typeof this.value === 'string') return String.prototype.split.call(this.value, ',').map(Number)
+      if (Array.isArray(this.value)) return this.value
+      return []
+    },
+    /**
      * Indicates if any option is selected
      *
      * @returns {Boolean} True if any option is selected.
