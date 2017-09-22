@@ -3,6 +3,7 @@
     <img src="./assets/logo.png">
     <TreeSelect 
       class="form-control center"
+      v-model="value"
       :searchable="searchable"
       :options="options">
     </TreeSelect>
