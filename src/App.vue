@@ -19,6 +19,7 @@ export default {
   },
   data () {
     return {
+      value: '2, 5',
       options: [],
       searchable: true
     }
