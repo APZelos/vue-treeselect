@@ -121,13 +121,13 @@ export default {
     },
     /**
      * Holds the selected value,
-     * an array that contains the value of the idProp of the selected options.
+     * an array, object or string that contains the value of the idProp of the selected options.
      *
-     * @type {Array}
+     * @type {null} Accepts any type of value.
      * @default null
      */
     value: {
-      type: Array,
+      type: null,
       default: null
     }
   },
@@ -212,7 +212,7 @@ $space--l: 10px;
   * {
     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-    box-sizing: border-box;  
+    box-sizing: border-box;
   }
 
   .clearfix,
