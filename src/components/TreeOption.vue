@@ -15,6 +15,15 @@ export default {
     option: {
       type: Object,
       required: true
+    },
+    /**
+     * The name of the property that holds the identifier value of each option.
+     *
+     * @type {String}
+     */
+    idProp: {
+      type: String,
+      required: true
     }
   },
   data () {
