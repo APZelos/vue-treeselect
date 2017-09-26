@@ -24,6 +24,15 @@ export default {
     idProp: {
       type: String,
       required: true
+    },
+    /**
+     * The name of the property that holds the label value of each option.
+     *
+     * @type {String}
+     */
+    labelProp: {
+      type: String,
+      required: true
     }
   },
   data () {
