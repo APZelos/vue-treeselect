@@ -70,6 +70,12 @@ export default {
       return this.option[this.childrenProp]
     },
     /**
+     * Indicates if the option contains any children.
+     */
+    hasChildren () {
+      return this.children.length > 0
+    },
+    /**
      * Indicates if the option is marked as selected.
      */
     isSelected () {
