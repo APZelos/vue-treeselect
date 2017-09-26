@@ -300,8 +300,7 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="scss"  scoped>
+<style lang="scss">
 $font-size: 16px;
 $space: 5px;
 $space--l: 10px;
