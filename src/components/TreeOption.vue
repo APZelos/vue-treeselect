@@ -152,19 +152,19 @@ export default {
     }
 
     .indicator {
-      margin: 2.5px auto;
+      margin: 1.5px auto;
 
       &--is-selected {
         transform: rotate(45deg);
-        width: 5px;
-        height: 9px;
+        width: 6px;
+        height: 10px;
         border-right: 3px solid white;
         border-bottom: 3px solid white;
       }
 
       &--child-selected {
-        width: #{$font-size - 6};
-        height: #{$font-size - 6};
+        width: #{$font-size - 4};
+        height: #{$font-size - 4};
         background-color: $color-main;
       }
     }
