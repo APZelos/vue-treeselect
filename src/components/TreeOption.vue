@@ -112,6 +112,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../assets/variables.scss";
+
 .treeoption {
   width: 100%;
 
@@ -121,9 +123,9 @@ export default {
 
   &__indicator {
     float: left;
-    margin-right: 5px;
-    height: 16px;
-    width: 16px;
+    margin-right: $space;
+    height: $font-size;
+    width: $font-size;
     background-color: grey;
   }
 
