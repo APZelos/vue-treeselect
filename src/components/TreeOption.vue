@@ -48,7 +48,14 @@ export default {
   data () {
     return {}
   },
-  computed: {},
+  computed: {
+    /**
+     * The option's id value.
+     */
+    id () {
+      return this.option[this.idProp]
+    }
+  },
   methods: {}
 }
 </script>
