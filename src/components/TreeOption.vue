@@ -114,5 +114,21 @@ export default {
 <style lang="scss">
 .treeoption {
   width: 100%;
+
+  &__label {
+    position: relative;
+  }
+
+  &__indicator {
+    float: left;
+    margin-right: 5px;
+    height: 16px;
+    width: 16px;
+    background-color: grey;
+  }
+
+  &__text {
+    text-align: left;
+  }
 }
 </style>
