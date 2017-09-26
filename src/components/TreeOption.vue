@@ -1,9 +1,25 @@
 <template>
   <div class="treeoption">
+    <!-- LABEL START -->
     <div class="treeoption__label">
-      <div class="treeoption__indicator"></div>
+      <!-- INDICATOR START -->
+      <div :class="{
+        'treeoption__indicator': true, 
+        'treeoption__indicator--fill': isSelected
+        }">
+        <!-- INDICATOR ICON START -->
+        <div :class="{
+          indicator: true,
+          'indicator--child-selected' : hasChildSelected,
+          'indicator--is-selected' : isSelected,
+          }">
+        </div>
+        <!-- INDICATOR ICON END -->
+      </div>
+      <!-- INDICATOR END -->
       <div class="treeoption__text">{{label}}</div>
     </div>
+    <!-- LABEL END -->
   </div>
 </template>
 
@@ -127,8 +143,31 @@ export default {
     margin-right: $space;
     height: $font-size;
     width: $font-size;
-    background-color: $color-lightGrey;
     border: 0.5px solid $color-grey;
+    background-color: $color-lightGrey;
+
+    &--fill {
+      border: none;
+      background-color: $color-main;
+    }
+
+    .indicator {
+      margin: 2.5px auto;
+
+      &--is-selected {
+        transform: rotate(45deg);
+        width: 5px;
+        height: 9px;
+        border-right: 3px solid white;
+        border-bottom: 3px solid white;
+      }
+
+      &--child-selected {
+        width: #{$font-size - 6};
+        height: #{$font-size - 6};
+        background-color: $color-main;
+      }
+    }
   }
 
   &__text {
