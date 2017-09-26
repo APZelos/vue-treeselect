@@ -76,7 +76,7 @@ export default {
       return this.option.isSelected
     },
     /**
-     * Indicates if the option has at least one children marked as selected
+     * Indicates if the option has at least one child marked as selected
      * or at least one of its children contains selected children.
      * But returns false if all of its children are marked as selected.
      */
