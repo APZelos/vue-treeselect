@@ -126,7 +126,8 @@ export default {
     margin-right: $space;
     height: $font-size;
     width: $font-size;
-    background-color: grey;
+    background-color: $color-lightGrey;
+    border: 0.5px solid $color-grey;
   }
 
   &__text {
