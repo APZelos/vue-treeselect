@@ -73,7 +73,15 @@ export default {
      * Indicates if the option is marked as selected.
      */
     isSelected () {
-      return option.isSelected
+      return this.option.isSelected
+    },
+    /**
+     * Indicates if the option has at least one children marked as selected
+     * or at least one of its children contains selected children.
+     * But returns false if all of its children are marked as selected.
+     */
+    hasChildSelected () {
+      return this.option.hasChildSelected
     }
   },
   methods: {}
