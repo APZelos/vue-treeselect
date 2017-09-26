@@ -1,5 +1,9 @@
 <template>
   <div class="treeoption">
+    <div class="treeoption__label">
+      <div class="treeoption__indicator"></div>
+      <div class="treeoption__text">{{label}}</div>
+    </div>
   </div>
 </template>
 
