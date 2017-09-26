@@ -60,6 +60,14 @@ export default {
      */
     label () {
       return this.option[this.labelProp]
+    },
+    /**
+     * The option's children array.
+     * If no childrenProp is defined in option returns an empty array.
+     */
+    children () {
+      if (!this.option[this.childrenProp]) return []
+      return this.option[this.childrenProp]
     }
   },
   methods: {}
