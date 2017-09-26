@@ -68,6 +68,12 @@ export default {
     children () {
       if (!this.option[this.childrenProp]) return []
       return this.option[this.childrenProp]
+    },
+    /**
+     * Indicates if the option is marked as selected.
+     */
+    isSelected () {
+      return option.isSelected
     }
   },
   methods: {}
