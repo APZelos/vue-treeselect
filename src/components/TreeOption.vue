@@ -54,6 +54,12 @@ export default {
      */
     id () {
       return this.option[this.idProp]
+    },
+    /**
+     * The option's label value.
+     */
+    label () {
+      return this.option[this.labelProp]
     }
   },
   methods: {}
