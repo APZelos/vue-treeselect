@@ -123,6 +123,7 @@ export default {
 
   &__indicator {
     float: left;
+    margin-top: 2px;
     margin-right: $space;
     height: $font-size;
     width: $font-size;
