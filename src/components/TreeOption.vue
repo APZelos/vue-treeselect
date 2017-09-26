@@ -82,6 +82,12 @@ export default {
      */
     hasChildSelected () {
       return this.option.hasChildSelected
+    },
+    /**
+     * Indicates if the option is considered a candidate for a search result.
+     */
+    isSearchResult () {
+      return this.option.isSearchResult
     }
   },
   methods: {}
