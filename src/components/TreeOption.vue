@@ -88,6 +88,13 @@ export default {
      */
     isSearchResult () {
       return this.option.isSearchResult
+    },
+    /**
+     * Indicates if the option has at least one child that
+     * is considered a candidate for a search result.
+     */
+    hasChildSearchResult () {
+      return this.option.hasChildSearchResult
     }
   },
   methods: {}
