@@ -21,8 +21,13 @@
 </template>
 
 <script>
+import TreeOption from './TreeOption'
+
 export default {
   name: 'TreeSelect',
+  components: {
+    TreeOption
+  },
   props: {
     /**
      * The name that will be used to reference the inputs that
