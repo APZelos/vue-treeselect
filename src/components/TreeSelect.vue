@@ -301,9 +301,7 @@ export default {
 </script>
 
 <style lang="scss">
-$font-size: 16px;
-$space: 5px;
-$space--l: 10px;
+@import "../assets/variables.scss";
 
 .treeselect {
   position: relative;
