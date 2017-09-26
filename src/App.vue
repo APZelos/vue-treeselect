@@ -20,7 +20,7 @@ export default {
   },
   data () {
     return {
-      value: '2, 5',
+      value: '2, 5, 6',
       options: [
         {
           id: 1,
@@ -41,6 +41,30 @@ export default {
                 {
                   id: 5,
                   label: '5'
+                }
+              ]
+            }
+          ]
+        },
+        {
+          id: 6,
+          label: '6',
+          children: [
+            {
+              id: 7,
+              label: '7'
+            },
+            {
+              id: 8,
+              label: '8',
+              children: [
+                {
+                  id: 9,
+                  label: '9'
+                },
+                {
+                  id: 10,
+                  label: '10'
                 }
               ]
             }
