@@ -6,7 +6,17 @@
 <script>
 export default {
   name: 'TreeOption',
-  props: {},
+  props: {
+    /**
+     * The object that holds the data of the option.
+     *
+     * @type {Object}
+     */
+    option: {
+      type: Object,
+      required: true
+    }
+  },
   data () {
     return {}
   },
