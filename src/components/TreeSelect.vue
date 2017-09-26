@@ -351,6 +351,7 @@ $space--l: 10px;
     width: 100%;
     min-height: $space--l;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    padding: $space;
   }
 }
 </style>
