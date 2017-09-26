@@ -14,7 +14,7 @@
     </div>
     <!-- DROPDOWN START -->
     <div v-show="isOpen" class="treeselect__dropdown">
-
+      
     </div>
     <!-- DROPDOWN END -->
   </div>
@@ -273,6 +273,15 @@ export default {
      */
     closeDropdown () {
       this.isOpen = false
+    },
+    /**
+     * Get the id value of a given option.
+     *
+     * @param {Object} option The option that we want to get its id value.
+     * @returns The id value of the given option.
+     */
+    getId (option) {
+      return option[this.idProp]
     }
   }
 }
