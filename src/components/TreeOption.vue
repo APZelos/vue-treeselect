@@ -91,6 +91,16 @@ export default {
     childrenProp: {
       type: String,
       required: true
+    },
+    /**
+     * Indicates if the dropdown of the option that contains the current option is open.
+     *
+     * @type {Boolean}
+     * @default false
+     */
+    isParentOpen: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
