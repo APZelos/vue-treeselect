@@ -24,7 +24,8 @@
         :option="option"
         :idProp="idProp"
         :labelProp="labelProp"
-        :childrenProp="childrenProp">
+        :childrenProp="childrenProp"
+        :isSearching="isSearching">
         </TreeOption>
       </template>
     </div>
