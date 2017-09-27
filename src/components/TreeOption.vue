@@ -210,7 +210,7 @@ export default {
     text-align: left;
 
     .indicator {
-      transition: transform 0.5s;
+      transition: transform 0.2s;
       display: inline-block;
       margin-bottom: 2px;
       width: 0;
