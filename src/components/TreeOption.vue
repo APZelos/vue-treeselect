@@ -138,6 +138,7 @@ export default {
   }
 
   &__indicator {
+    cursor: pointer;
     float: left;
     margin-top: 2px;
     margin-right: $space;
