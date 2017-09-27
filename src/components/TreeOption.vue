@@ -18,7 +18,8 @@
       </div>
       <!-- INDICATOR END -->
       <!-- TEXT START -->
-      <div class="treeoption__text">
+      <div class="treeoption__text"
+        @click="textClickHandler">
         {{label}} 
         <!-- OPEN / CLOSE INDICATOR START -->
         <div v-if="hasChildren" 
@@ -143,7 +144,19 @@ export default {
       return this.option.hasChildSearchResult
     }
   },
-  methods: {}
+  methods: {
+    /**
+     * Handles the click event of the text element.
+     * If the option has children toggles the isOpen data (opens / close the dropdown that holds the option's children).
+     * TODO: If the option has no children toggles isSelected flag.
+     */
+    textClickHandler () {
+      if (this.hasChildren) {
+        this.isOpen = !this.isOpen
+        return void 0
+      }
+    }
+  }
 }
 </script>
 
