@@ -1,6 +1,10 @@
 <template>
   <div class="treeselect">
-    <div class="treeselect__select clearfix">
+    <div :class="{
+      'clearfix': true,
+      'treeselect__select': true,
+      'treeselect__select--open': isOpen,
+      }">
       <!-- SEARCH INPUT / PLACEHOLDER START -->
       <input v-if="searchable || !isAnyOptionSelected" 
         class="treeselect__placeholder"
@@ -319,6 +323,11 @@ export default {
     font-size: inherit;
     background-color: $color-background;
     border-radius: $space;
+
+    &--open {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
 
     input.treeselect__placeholder {
       border: none;
