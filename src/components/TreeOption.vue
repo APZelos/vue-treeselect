@@ -23,7 +23,7 @@
         {{label}} 
         <!-- OPEN / CLOSE INDICATOR START -->
         <div v-if="hasChildren" 
-        v-show="!isSearching || (isSearchResult || isParentSearchResult)"
+          v-show="!isSearching || (isSearchResult || isParentSearchResult)"
           :class="{
             indicator: true,
             'indicator--open': isOpen
@@ -47,7 +47,7 @@
           :childrenProp="childrenProp" 
           :isParentOpen="isOpen"
           :isSearching="isSearching"
-          :isParentSearchResult="isSearchResult">
+          :isParentSearchResult="isParentSearchResult || isSearchResult">
           </TreeOption>
       </template>
     </div>
