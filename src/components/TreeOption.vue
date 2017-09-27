@@ -45,7 +45,8 @@
           :labelProp="labelProp"
           :childrenProp="childrenProp" 
           :isParentOpen="isOpen"
-          :isSearching="isSearching">
+          :isSearching="isSearching"
+          :isParentSearchResult="isSearchResult">
           </TreeOption>
       </template>
     </div>
@@ -194,9 +195,10 @@ export default {
      *  * if no searching is currently happening
      *  * if is considered a candidate for a search result
      *  * if it has at least one child that is considered a candidate for a search result
+     *  * if the parent option is a candidate for a search result and the parent's dropdown is open
      */
     isVisible () {
-      return !this.isSearching || (this.isSearchResult || this.hasChildSearchResult)
+      return !this.isSearching || (this.isSearchResult || this.hasChildSearchResult || (this.isParentOpen && this.isParentSearchResult))
     }
   },
   methods: {
