@@ -184,6 +184,11 @@ export default {
     }
   },
   watch: {
+    /**
+     * Watches the isParentOpen value.
+     * When the dropdown of the parent option that contains
+     * this option closes this option's dropdown must also close.
+     */
     isParentOpen (value) {
       if (!value) this.isOpen = false
     }
