@@ -105,6 +105,16 @@ export default {
       default: false
     },
     /**
+     * Indicates if the parent option is a candidate for a search result.
+     *
+     * @type {Boolean}
+     * @default false
+     */
+    isParentSearchResult: {
+      type: Boolean,
+      default: false
+    },
+    /**
      * Indicates if a search query is provided.
      * (a search happening right now)
      */
