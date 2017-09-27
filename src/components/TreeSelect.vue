@@ -16,7 +16,7 @@
     <div v-show="isOpen" class="treeselect__dropdown">
       <template v-for="option in optionList">
         <TreeOption 
-        :key="getId(option)"
+        :key="option[idProp]"
         :option="option"
         :idProp="idProp"
         :labelProp="labelProp"
@@ -286,15 +286,6 @@ export default {
      */
     closeDropdown () {
       this.isOpen = false
-    },
-    /**
-     * Get the id value of a given option.
-     *
-     * @param {Object} option The option that we want to get its id value.
-     * @returns The id value of the given option.
-     */
-    getId (option) {
-      return option[this.idProp]
     }
   }
 }
