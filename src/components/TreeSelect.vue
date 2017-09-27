@@ -321,7 +321,7 @@ export default {
     height: 100%;
     padding: $space $space--l;
     font-size: inherit;
-    background-color: $color-background;
+    border: 1px solid $color-lightGrey;
     border-radius: $space;
 
     &--open {
@@ -351,8 +351,8 @@ export default {
     width: 100%;
     min-height: $space--l;
     padding: $space;
-    background-color: $color-background;
-    border-top: 2px solid $color-main;
+    border: 1px solid $color-lightGrey;
+    border-top: 0;
     border-bottom-left-radius: $space;
     border-bottom-right-radius: $space;
   }
