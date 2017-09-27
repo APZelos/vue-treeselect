@@ -1,5 +1,5 @@
 <template>
-  <div class="treeoption">
+  <div v-show="isVisible" class="treeoption">
     <!-- LABEL START -->
     <div class="treeoption__label">
       <!-- INDICATOR START -->
@@ -177,6 +177,16 @@ export default {
      */
     hasChildSearchResult () {
       return this.option.hasChildSearchResult
+    },
+    /**
+     * Indicates if this option should be shown.
+     * An option is visible:
+     *  * if no searching is currently happening
+     *  * if is considered a candidate for a search result
+     *  * if it has at least one child that is considered a candidate for a search result
+     */
+    isVisible () {
+      return !this.isSearching || (this.isSearchResult || this.hasChildSearchResult)
     }
   },
   methods: {
