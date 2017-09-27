@@ -346,10 +346,12 @@ export default {
   }
 
   &__dropdown {
+    overflow: auto;
     z-index: 999;
     position: absolute;
     width: 100%;
     min-height: $space--l;
+    max-height: 200px;
     padding: $space;
     border: 1px solid $color-lightGrey;
     border-top: 0;
