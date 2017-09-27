@@ -318,6 +318,7 @@ export default {
     height: 100%;
     padding: $space $space--l;
     font-size: inherit;
+    background-color: $color-background;
 
     input.treeselect__placeholder {
       border: none;
@@ -327,6 +328,7 @@ export default {
       padding-bottom: $space;
       float: left;
       font-size: inherit;
+      background-color: transparent;
 
       &:disabled {
         cursor: pointer;
