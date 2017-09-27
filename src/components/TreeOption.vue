@@ -217,7 +217,7 @@ export default {
       height: 0;
       border-left: 5px solid transparent;
       border-right: 5px solid transparent;
-      border-top: 8px solid black;
+      border-top: 7px solid black;
 
       &--open {
         transform: rotate3d(0, 0, 1, -180deg)
