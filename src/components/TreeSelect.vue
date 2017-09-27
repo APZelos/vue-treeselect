@@ -318,6 +318,7 @@ export default {
     padding: $space $space--l;
     font-size: inherit;
     background-color: $color-background;
+    border-radius: $space;
 
     input.treeselect__placeholder {
       border: none;
@@ -340,8 +341,11 @@ export default {
     position: absolute;
     width: 100%;
     min-height: $space--l;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
     padding: $space;
+    background-color: $color-background;
+    border-top: 2px solid $color-main;
+    border-bottom-left-radius: $space;
+    border-bottom-right-radius: $space;
   }
 }
 </style>
