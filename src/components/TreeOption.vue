@@ -33,6 +33,21 @@
       <!-- TEXT END -->
     </div>
     <!-- LABEL END -->
+    <!-- CHILDREN START -->
+    <div v-if="hasChildren" 
+      v-show="isOpen"
+      class="treeoption__children">
+      <template v-for="child in children">
+        <TreeOption 
+          :key="child[idProp]"
+          :option="child"
+          :idProp="idProp"
+          :labelProp="labelProp"
+          :childrenProp="childrenProp">
+          </TreeOption>
+      </template>
+    </div>
+    <!-- CHILDREN END -->
   </div>
 </template>
 
@@ -223,6 +238,10 @@ export default {
         transform: rotate3d(0, 0, 1, -180deg)
       }
     }
+  }
+
+  &__children {
+    padding-left: $space--l;
   }
 }
 </style>
