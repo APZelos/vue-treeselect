@@ -102,6 +102,14 @@ export default {
     isParentOpen: {
       type: Boolean,
       default: false
+    },
+    /**
+     * Indicates if a search query is provided.
+     * (a search happening right now)
+     */
+    isSearching: {
+      type: Boolean,
+      required: true
     }
   },
   data () {
