@@ -173,6 +173,7 @@ export default {
   }
 
   &__text {
+    cursor: pointer;
     text-align: left;
   }
 }
