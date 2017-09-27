@@ -152,9 +152,9 @@ export default {
     }
 
     .indicator {
-      margin: 1.5px auto;
 
       &--is-selected {
+        margin: 1.5px auto;
         transform: rotate(45deg);
         width: 6px;
         height: 10px;
@@ -163,8 +163,9 @@ export default {
       }
 
       &--child-selected {
-        width: #{$font-size - 4};
-        height: #{$font-size - 4};
+        width: #{$font-size - 2};
+        height: #{$font-size - 2};
+        border: 1.5px solid $color-lightGrey;
         background-color: $color-main;
       }
     }
