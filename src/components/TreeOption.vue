@@ -177,7 +177,7 @@ export default {
     margin-right: $space;
     height: $font-size;
     width: $font-size;
-    border: 0.5px solid $color-grey;
+    border: 1px solid $color-grey;
     background-color: $color-lightGrey;
 
     &--fill {
@@ -188,7 +188,7 @@ export default {
     .indicator {
 
       &--is-selected {
-        margin: 1.5px auto;
+        margin: 2px auto;
         transform: rotate(45deg);
         width: 6px;
         height: 10px;
@@ -199,7 +199,7 @@ export default {
       &--child-selected {
         width: #{$font-size - 2};
         height: #{$font-size - 2};
-        border: 1.5px solid $color-lightGrey;
+        border: 2px solid $color-lightGrey;
         background-color: $color-main;
       }
     }
