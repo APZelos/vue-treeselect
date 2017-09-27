@@ -306,6 +306,7 @@ export default {
 .treeselect {
   position: relative;
   font-size: $font-size;
+  line-height: $line-height;
 
   * {
     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
