@@ -313,7 +313,6 @@ export default {
   }
 
   &__select {
-    border-bottom: 1px solid gray;
     width: 100%;
     height: 100%;
     padding: $space $space--l;
