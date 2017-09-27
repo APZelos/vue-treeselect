@@ -196,6 +196,7 @@ export default {
 
 .treeoption {
   width: 100%;
+  padding-top: $space;
 
   &__label {
     position: relative;
