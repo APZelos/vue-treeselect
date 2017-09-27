@@ -35,7 +35,7 @@
     <!-- LABEL END -->
     <!-- CHILDREN START -->
     <div v-if="hasChildren" 
-      v-show="isOpen"
+      v-show="isOpen || (isVisible && isSearching)"
       class="treeoption__children">
       <template v-for="child in children">
         <TreeOption 
