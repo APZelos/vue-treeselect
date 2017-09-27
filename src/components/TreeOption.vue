@@ -181,6 +181,11 @@ export default {
         return void 0
       }
     }
+  },
+  watch: {
+    isParentOpen (value) {
+      if (!value) this.isOpen = false
+    }
   }
 }
 </script>
