@@ -43,7 +43,8 @@
           :option="child"
           :idProp="idProp"
           :labelProp="labelProp"
-          :childrenProp="childrenProp">
+          :childrenProp="childrenProp" 
+          :isParentOpen="isOpen">
           </TreeOption>
       </template>
     </div>
