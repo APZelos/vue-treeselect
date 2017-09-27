@@ -17,7 +17,19 @@
         <!-- INDICATOR ICON END -->
       </div>
       <!-- INDICATOR END -->
-      <div class="treeoption__text">{{label}}</div>
+      <!-- TEXT START -->
+      <div class="treeoption__text">
+        {{label}} 
+        <!-- OPEN / CLOSE INDICATOR START -->
+        <div v-if="hasChildren" 
+          :class="{
+            indicator: true,
+            'indicator--open': isOpen
+          }">
+        <!-- OPEN / CLOSE INDICATOR END -->
+        </div>
+      </div>
+      <!-- TEXT END -->
     </div>
     <!-- LABEL END -->
   </div>
@@ -66,7 +78,15 @@ export default {
     }
   },
   data () {
-    return {}
+    return {
+      /**
+       *  Indicates if the drop-down that holds the children is open.
+       *
+       * @type {Boolean}
+       * @default false
+       */
+      isOpen: false
+    }
   },
   computed: {
     /**
@@ -175,6 +195,21 @@ export default {
   &__text {
     cursor: pointer;
     text-align: left;
+
+    .indicator {
+      transition: transform 0.5s;
+      display: inline-block;
+      margin-bottom: 2px;
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 8px solid black;
+
+      &--open {
+        transform: rotate3d(0, 0, 1, -180deg)
+      }
+    }
   }
 }
 </style>
