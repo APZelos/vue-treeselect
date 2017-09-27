@@ -23,6 +23,7 @@
         {{label}} 
         <!-- OPEN / CLOSE INDICATOR START -->
         <div v-if="hasChildren" 
+        v-show="!isSearching || (isSearchResult || isParentSearchResult)"
           :class="{
             indicator: true,
             'indicator--open': isOpen
