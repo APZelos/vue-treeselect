@@ -44,7 +44,8 @@
           :idProp="idProp"
           :labelProp="labelProp"
           :childrenProp="childrenProp" 
-          :isParentOpen="isOpen">
+          :isParentOpen="isOpen"
+          :isSearching="isSearching">
           </TreeOption>
       </template>
     </div>
