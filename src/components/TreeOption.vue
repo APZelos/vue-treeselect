@@ -1,9 +1,13 @@
 <template>
   <div v-show="isVisible" class="treeoption">
     <!-- LABEL START -->
-    <div class="treeoption__label">
+    <div :class="{
+      'treeoption__label': true,
+      'treeoption__label--disabled': isSearching && !isSearchResult && !isParentSearchResult
+      }">
       <!-- INDICATOR START -->
-      <div :class="{
+      <div
+       :class="{
         'treeoption__indicator': true, 
         'treeoption__indicator--fill': isSelected
         }">
@@ -11,7 +15,7 @@
         <div :class="{
           indicator: true,
           'indicator--child-selected' : hasChildSelected,
-          'indicator--is-selected' : isSelected,
+          'indicator--is-selected' : isSelected
           }">
         </div>
         <!-- INDICATOR ICON END -->
@@ -237,6 +241,31 @@ export default {
 
   &__label {
     position: relative;
+
+    &.treeoption__label--disabled {
+
+      .treeoption__indicator {
+        &--fill {
+        background-color: $color-lightGrey;
+        }
+      }
+
+      .indicator {
+        &--is-selected {
+          border-right: 3px solid $color-grey;
+          border-bottom: 3px solid $color-grey;
+        }
+
+        &--child-selected {
+          background-color: $color-grey;
+        }
+      }
+
+      .treeoption__text,
+      .treeoption__indicator {
+        cursor: default;
+      }
+    }
   }
 
   &__indicator {
