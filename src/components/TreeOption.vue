@@ -1,5 +1,5 @@
 <template>
-  <div v-show="isVisible" class="treeoption">
+  <div v-show="!isSearching || isVisibleAtSearch" class="treeoption">
     <!-- LABEL START -->
     <div :class="{
       'treeoption__label': true,
@@ -40,7 +40,7 @@
     <!-- LABEL END -->
     <!-- CHILDREN START -->
     <div v-if="hasChildren" 
-      v-show="isOpen || (isVisible && isSearching)"
+      v-show="isOpen || (isSearching && isVisibleAtSearch)"
       class="treeoption__children">
       <template v-for="child in children">
         <TreeOption 
@@ -195,15 +195,15 @@ export default {
       return this.option.hasChildSearchResult
     },
     /**
-     * Indicates if this option should be shown.
+     * Indicates if this option should be shown during search.
      * An option is visible:
      *  * if no searching is currently happening
      *  * if is considered a candidate for a search result
      *  * if it has at least one child that is considered a candidate for a search result
      *  * if the parent option is a candidate for a search result and the parent's dropdown is open
      */
-    isVisible () {
-      return !this.isSearching || (this.isSearchResult || this.hasChildSearchResult || (this.isParentOpen && this.isParentSearchResult))
+    isVisibleAtSearch () {
+      return this.isSearchResult || this.hasChildSearchResult || (this.isParentOpen && this.isParentSearchResult)
     }
   },
   methods: {
