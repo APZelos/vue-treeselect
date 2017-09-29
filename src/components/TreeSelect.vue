@@ -94,6 +94,20 @@ export default {
       default: 'Type to search'
     },
     /**
+     * A a function that is called upon every option,
+     * with the current examining option and the current search query as arguments,
+     * and when returns true marks given option as a candidate for a search result.
+     *
+     * @type {Function}
+     * @default Function Returns true if the label value of the given option contains the given search query.
+     */
+    search: {
+      type: Function,
+      default (option, searchQuery) {
+        return !!~String.prototype.indexOf.call(option[this.labelProp], searchQuery)
+      }
+    },
+    /**
      * The available options.
      * An array of objects with three properties:
      *  * an identifier (example: option.id),
