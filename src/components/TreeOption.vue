@@ -3,7 +3,7 @@
     <!-- LABEL START -->
     <div :class="{
       'treeoption__label': true,
-      'treeoption__label--disabled': isSearching && !isSearchResult && !isParentSearchResult
+      'treeoption__label--disabled': isSearching && !isEnabledAtSearch
       }">
       <!-- INDICATOR START -->
       <div
@@ -27,7 +27,7 @@
         {{label}} 
         <!-- OPEN / CLOSE INDICATOR START -->
         <div v-if="hasChildren" 
-          v-show="!isSearching || (isSearchResult || isParentSearchResult)"
+          v-show="!isSearching || isEnabledAtSearch"
           :class="{
             indicator: true,
             'indicator--open': isOpen
@@ -204,15 +204,26 @@ export default {
      */
     isVisibleAtSearch () {
       return this.isSearchResult || this.hasChildSearchResult || (this.isParentOpen && this.isParentSearchResult)
+    },
+    /**
+     * Indicates if this option is enabled during search.
+     * An option is enabled during search:
+     *  * if is considered a candidate for a search result
+     *  * if the parent option is a candidate for a search result
+     */
+    isEnabledAtSearch () {
+      return this.isSearchResult || this.isParentSearchResult
     }
   },
   methods: {
     /**
      * Handles the click event of the text element.
      * If the option has children toggles the isOpen data (opens / close the dropdown that holds the option's children).
+     * If the a search is happening and the option is not marked as enabled at search doesn't allow method to run.
      * TODO: If the option has no children toggles isSelected flag.
      */
     textClickHandler () {
+      if (this.isSearching && !this.isEnabledAtSearch) return void 0
       if (this.hasChildren) {
         this.isOpen = !this.isOpen
         return void 0
