@@ -240,7 +240,7 @@ export default {
         // (because the selection of an option that has children indicates the selection of all of its children)
         optionObj.isSelected = isParentSelected || Array.prototype.includes.call(this.values, optionObj[this.idProp])
         // An option is considered a candidate for a search result if the search function returns true.
-        optionObj.isSearchResult = this.isSearching && search(optionObj, this.searchQuery)
+        optionObj.isSearchResult = this.isSearching && this.search(optionObj, this.searchQuery)
         // If the option doesn't contain any children
         // no further configuration needs to be made.
         const childrenCount = Object.prototype.hasOwnProperty.call(option, this.childrenProp) && option[this.childrenProp].length
