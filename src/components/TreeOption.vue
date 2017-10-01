@@ -306,6 +306,12 @@ export default {
       background-color: $color-main;
     }
 
+    &__indicator--animated {
+      &.indicator--child-selected {
+        animation: indicator--child-selected 0.2s ease-in;
+      }
+    }
+
     .indicator {
 
       &--is-selected {
@@ -348,6 +354,18 @@ export default {
 
   &__children {
     padding-left: $space--l;
+  }
+}
+
+@keyframes indicator--child-selected {
+  0% {
+    border-width: #{($font-size - 2) / 2};
+  }
+  75% {
+    border-width: 0;
+  }
+  100% {
+    border-width: 2px;
   }
 }
 </style>
