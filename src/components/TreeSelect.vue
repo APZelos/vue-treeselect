@@ -383,6 +383,19 @@ export default {
       this.$emit('input', Array.prototype.join.call(newValues))
       this.areOptionAnimationsEnabled = true
     }
+  },
+  watch: {
+    /**
+     * Watches isSearching value and when changes to true
+     * opens the dropdown and disables the option animations
+     * (because filtering the options triggers their animations).
+     */
+    isSearching (value) {
+      if (value) {
+        this.openDropdown()
+        this.areOptionAnimationsEnabled = false
+      }
+    }
   }
 }
 </script>
