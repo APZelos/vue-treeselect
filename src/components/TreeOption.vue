@@ -9,7 +9,8 @@
       <div
        :class="{
         'treeoption__indicator': true, 
-        'treeoption__indicator--fill': isSelected
+        'treeoption__indicator--fill': isSelected,
+        'treeoption__indicator--animated': playAnimations
         }"
         @click="toggleHandler(id, !isSelected)">
         <!-- INDICATOR ICON START -->
@@ -53,6 +54,7 @@
           :isParentOpen="isOpen"
           :isSearching="isSearching"
           :isParentSearchResult="isParentSearchResult || isSearchResult"
+          :areAnimationsEnabled="areAnimationsEnabled"
           @toggle="toggleHandler">
           </TreeOption>
       </template>
@@ -129,6 +131,17 @@ export default {
     isSearching: {
       type: Boolean,
       required: true
+    },
+    /**
+     * Indicates if the animations are enabled.
+     * This helps to prevent animations to be played
+     * every time the dropdown opens.
+     *
+     * @type {Boolean}
+     */
+    areAnimationsEnabled: {
+      type: Boolean,
+      required: true
     }
   },
   data () {
@@ -139,7 +152,14 @@ export default {
        * @type {Boolean}
        * @default false
        */
-      isOpen: false
+      isOpen: false,
+      /**
+       * Indicates if the animations should be played.
+       *
+       * @type {Boolean}
+       * @default false
+       */
+      playAnimations: false
     }
   },
   computed: {
@@ -250,6 +270,24 @@ export default {
      */
     isParentOpen (value) {
       if (!value) this.isOpen = false
+    },
+    /**
+     * Watches the isSelected value and enables the animation when is changed.
+     */
+    isSelected (value) {
+      this.playAnimations = true
+    },
+    /**
+     * Watches the hasChildSelected value and enables the animation when is changed.
+     */
+    hasChildSelected (value) {
+      this.playAnimations = true
+    },
+    /**
+     * Watches the areAnimationsEnabled and disabled the animations if its value is false.
+     */
+    areAnimationsEnabled (value) {
+      if (!value) this.playAnimations = false
     }
   }
 }
@@ -306,8 +344,8 @@ export default {
       background-color: $color-main;
     }
 
-    &__indicator--animated {
-      &.indicator--child-selected {
+    &--animated {
+      .indicator--child-selected {
         animation: indicator--child-selected 0.2s ease-in;
       }
     }

@@ -26,6 +26,7 @@
         :labelProp="labelProp"
         :childrenProp="childrenProp"
         :isSearching="isSearching"
+        :areAnimationsEnabled="areOptionAnimationsEnabled"
         @toggle="toggleHandler">
         </TreeOption>
       </template>
@@ -186,7 +187,17 @@ export default {
        * @type {String}
        * @default ''
        */
-      searchQuery: ''
+      searchQuery: '',
+      /**
+       * Indicates if the animations of the options should be played.
+       * This is set to true only after a toggle event is fired
+       * and to false every time the dropdown closes
+       * to prevent the animations to play every time the dropdown open.
+       *
+       * @type {Boolean}
+       * @default false
+       */
+      areOptionAnimationsEnabled: false
     }
   },
   computed: {
@@ -302,13 +313,17 @@ export default {
       this.isOpen = true
     },
     /**
-     * Sets isOpen data to false, which closes the drop-down.
+     * Sets isOpen data to false, which closes the drop-down,
+     * and deactivates option animations.
      */
     closeDropdown () {
       this.isOpen = false
+      this.areOptionAnimationsEnabled = false
     },
     /**
-     * Handles the options toggle event and fires the input event (for v-model).
+     * Handles the options toggle event,
+     * fires the input event (for v-model),
+     * and activates option animations
      *
      * @param {Number} toggledId The id of the option that was toggled.
      * @param {Boolean} newIsSelectedValue The new value of isSelected property of the toggled option.
@@ -366,6 +381,7 @@ export default {
         checkOption(this.options[i], false, false)
       }
       this.$emit('input', Array.prototype.join.call(newValues))
+      this.areOptionAnimationsEnabled = true
     }
   }
 }
