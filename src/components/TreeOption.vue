@@ -348,6 +348,9 @@ export default {
       .indicator--child-selected {
         animation: indicator--child-selected 0.2s ease-in;
       }
+      .indicator--is-selected {
+        animation: indicator--is-selected 0.2s ease-in;
+      }
     }
 
     .indicator {
@@ -404,6 +407,20 @@ export default {
   }
   100% {
     border-width: 2px;
+  }
+}
+
+@keyframes indicator--is-selected {
+  0% {
+    border-right-width: 0;
+    border-bottom-width: 0;
+  }
+  50% {
+    border-right-width: 0;
+    border-bottom-width: 3px;
+  }
+  100% {
+    border-right-width: 3px;
   }
 }
 </style>
