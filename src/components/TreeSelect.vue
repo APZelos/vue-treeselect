@@ -25,7 +25,8 @@
         :idProp="idProp"
         :labelProp="labelProp"
         :childrenProp="childrenProp"
-        :isSearching="isSearching">
+        :isSearching="isSearching"
+        @toggle="toggleHandler">
         </TreeOption>
       </template>
     </div>
@@ -226,7 +227,7 @@ export default {
        * @param {Boolean} [isParentSelected=false] A flag that indicates if the parent that contains the given option is marked as selected.
        * @returns A configured option.
        */
-      const configureOption = (option, isParentSelected = false) => {
+      const checkOption = (option, isParentSelected = false) => {
         // Creates a copy of the option
         // that is going to be configured.
         const optionObj = {}
@@ -245,7 +246,7 @@ export default {
         // no further configuration needs to be made.
         const childrenCount = Object.prototype.hasOwnProperty.call(option, this.childrenProp) && option[this.childrenProp].length
         if (!childrenCount) return optionObj
-        const { selectedChildrenCount, isAnyChildrenSearchResult } = configureChildren(option[this.childrenProp], optionObj[this.childrenProp], optionObj.isSelected)
+        const { selectedChildrenCount, isAnyChildrenSearchResult } = checkChildren(option[this.childrenProp], optionObj[this.childrenProp], optionObj.isSelected)
         optionObj.hasChildSearchResult = this.isSearching && isAnyChildrenSearchResult
         // An option can be marked that has selected children:
         //  * if at least one of its children is selected
@@ -266,11 +267,11 @@ export default {
        * @param {Boolean} [isParentSelected=false] A flag that indicates if the option that contains the given children is marked as selected.
        * @returns The count of selected children and if any children is considered a candidate for a search result.
        */
-      const configureChildren = (children, childrenList, isParentSelected = false) => {
+      const checkChildren = (children, childrenList, isParentSelected = false) => {
         let selectedChildrenCount = 0
         let isAnyChildrenSearchResult = false
         for (let i = 0; i < children.length; i++) {
-          const child = configureOption(children[i], isParentSelected)
+          const child = checkOption(children[i], isParentSelected)
           // If the configured child is marked as selected
           // then the count of selected children must be increased by 1
           if (child.isSelected) selectedChildrenCount++
@@ -288,7 +289,7 @@ export default {
 
       const list = []
       for (let i = 0; i < this.options.length; i++) {
-        list.push(configureOption(this.options[i]))
+        list.push(checkOption(this.options[i]))
       }
       return list
     }
@@ -305,6 +306,66 @@ export default {
      */
     closeDropdown () {
       this.isOpen = false
+    },
+    /**
+     * Handles the options toggle event and fires the input event (for v-model).
+     *
+     * @param {Number} toggledId The id of the option that was toggled.
+     * @param {Boolean} newIsSelectedValue The new value of isSelected property of the toggled option.
+     */
+    toggleHandler (toggledId, newIsSelectedValue) {
+      /**
+       * Gets an option and if after the validations can
+       * be considered selected adds its id to the new values.
+       *
+       * @param {Object} option The option that is going to be checked.
+       * @param {Boolean} isParentToggled If the parent option is marked as toggled.
+       * @param {Boolean} isParentSelected If the parent option after the validations is marked as selected
+       * @returns {Boolean} True if the option after the validations is marked as selected.
+       */
+      const checkOption = (option, isParentToggled, isParentSelected) => {
+        // An options is considered toggled if:
+        //  * its id is the same as the id of the option that fired the event
+        //  * its parent is marked as toggled
+        let isToggled = option[this.idProp] === toggledId || isParentToggled
+        // Checks if this option was selected before the toggled event was fired.
+        let isOptionIdInOldValues = Array.prototype.includes.call(this.values, option[this.idProp])
+        // An option can be considered selected if:
+        //  * it's marked as toggled and the newIsSelectedValue is true
+        //  * its parent is marked as selected
+        //  * it's not marked as toggled and was selected before the toggle event was fired
+        let isSelected = isToggled
+          ? newIsSelectedValue
+          : isParentSelected || isOptionIdInOldValues
+        // If the option has children it can be considered
+        // selected only if all of its children are marked
+        // as selected after the toggle event.
+        if (option[this.childrenProp]) isSelected = checkChildren(option[this.childrenProp], isToggled, isSelected)
+        if (isSelected) newValues.push(option[this.idProp])
+        return isSelected
+      }
+
+      /**
+       * Checks all the given children.
+       *
+       * @param {Array} children The array of children that is going to be checked.
+       * @param {Boolean} isParentToggled If the parent option is marked as toggled.
+       * @param {Boolean} isParentSelected If the parent option after the validations is marked as selected
+       * @returns {Boolean} True if all the children are marked as selected.
+       */
+      const checkChildren = (children, isParentToggled, isParentSelected) => {
+        let selectedChildrenCount = 0
+        for (let i = 0; i < children.length; i++) {
+          if (checkOption(children[i], isParentToggled, isParentSelected)) selectedChildrenCount++
+        }
+        return selectedChildrenCount === children.length
+      }
+
+      let newValues = []
+      for (let i = 0; i < this.options.length; i++) {
+        checkOption(this.options[i], false, false)
+      }
+      this.$emit('input', Array.prototype.join.call(newValues))
     }
   }
 }

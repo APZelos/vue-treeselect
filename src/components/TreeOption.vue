@@ -10,7 +10,8 @@
        :class="{
         'treeoption__indicator': true, 
         'treeoption__indicator--fill': isSelected
-        }">
+        }"
+        @click="toggleHandler(id, !isSelected)">
         <!-- INDICATOR ICON START -->
         <div :class="{
           indicator: true,
@@ -51,7 +52,8 @@
           :childrenProp="childrenProp" 
           :isParentOpen="isOpen"
           :isSearching="isSearching"
-          :isParentSearchResult="isParentSearchResult || isSearchResult">
+          :isParentSearchResult="isParentSearchResult || isSearchResult"
+          @toggle="toggleHandler">
           </TreeOption>
       </template>
     </div>
@@ -218,9 +220,9 @@ export default {
   methods: {
     /**
      * Handles the click event of the text element.
-     * If the option has children toggles the isOpen data (opens / close the dropdown that holds the option's children).
      * If the a search is happening and the option is not marked as enabled at search doesn't allow method to run.
-     * TODO: If the option has no children toggles isSelected flag.
+     * If the option has children toggles the isOpen data (opens / close the dropdown that holds the option's children).
+     * If the option has no children fires toggle event.
      */
     textClickHandler () {
       if (this.isSearching && !this.isEnabledAtSearch) return void 0
@@ -228,6 +230,16 @@ export default {
         this.isOpen = !this.isOpen
         return void 0
       }
+      this.toggleHandler(this.id, !this.isSelected)
+    },
+    /**
+     * Handles the toggle event.
+     *
+     * @param {Number} id The id of the option that was toggled.
+     * @param {Boolean} newIsSelectedValue The new value of isSelected property of the toggled option.
+     */
+    toggleHandler (id, newIsSelectedValue) {
+      this.$emit('toggle', id, newIsSelectedValue)
     }
   },
   watch: {
