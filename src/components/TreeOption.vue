@@ -12,7 +12,7 @@
         'treeoption__indicator--fill': isSelected,
         'treeoption__indicator--animated': playAnimations
         }"
-        @click="toggleHandler(id, !isSelected)">
+        @click="(!isSearching || (isSearching && isEnabledAtSearch)) && toggleHandler(id, !isSelected)">
         <!-- INDICATOR ICON START -->
         <div :class="{
           indicator: true,
