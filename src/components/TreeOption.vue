@@ -307,14 +307,14 @@ export default {
 
       .treeoption__indicator {
         &--fill {
-        background-color: $color-lightGrey;
+        background-color: $color-grey;
         }
       }
 
       .indicator {
         &--is-selected {
-          border-right: 3px solid $color-grey;
-          border-bottom: 3px solid $color-grey;
+          border-right: 3px solid $color-lightGrey;
+          border-bottom: 3px solid $color-lightGrey;
         }
 
         &--child-selected {
