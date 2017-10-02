@@ -168,13 +168,6 @@ export default {
   data () {
     return {
       /**
-       * An array of all the selected options objects.
-       *
-       * @type {Array}
-       * @default []
-       */
-      selectedOptions: [],
-      /**
        * Indicates if the drop-down is open.
        *
        * @type {Boolean}
@@ -300,7 +293,40 @@ export default {
 
       const list = []
       for (let i = 0; i < this.options.length; i++) {
-        list.push(configureOption(this.options[i], i, 0, 0))
+        list.push(configureOption(this.options[i]))
+      }
+      return list
+    },
+    /**
+     * An array of all the selected options objects.
+     *
+     * @type {Array}
+     */
+    selectedOptions () {
+      /**
+       * Checks and option if it should be added to the list of selected option.
+       *  * If the option is marked as selected there is no need to check its children, because when a parent is selected also all of its children are selected.
+       *  * If it's not marked selected and the option contains children we check them.
+       *
+       * @param {Object} option The option we want to check.
+       */
+      const checkOption = (option) => {
+        if (option.isSelected) {
+          return list.push({
+            id: option[this.idProp],
+            label: option[this.labelProp]
+          })
+        }
+        if (option[this.childrenProp].length > 0) {
+          for (let i = 0; i < option[this.childrenProp].length; i++) {
+            checkOption(option[this.childrenProp][i])
+          }
+        }
+      }
+
+      const list = []
+      for (let i = 0; i < this.optionList.length; i++) {
+        checkOption(this.optionList[i])
       }
       return list
     }
