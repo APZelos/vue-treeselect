@@ -507,6 +507,10 @@ export default {
     font-size: inherit;
     color: white;
     background-color: $color-main;
+
+    &:hover {
+      background-color: $color-main--dark;
+    }
   }
 
   &__dropdown {
