@@ -238,7 +238,7 @@ export default {
        * @param {Boolean} [isParentSelected=false] A flag that indicates if the parent that contains the given option is marked as selected.
        * @returns A configured option.
        */
-      const checkOption = (option, isParentSelected = false) => {
+      const configureOption = (option, isParentSelected = false) => {
         // Creates a copy of the option
         // that is going to be configured.
         const optionObj = {}
@@ -257,7 +257,7 @@ export default {
         // no further configuration needs to be made.
         const childrenCount = Object.prototype.hasOwnProperty.call(option, this.childrenProp) && option[this.childrenProp].length
         if (!childrenCount) return optionObj
-        const { selectedChildrenCount, isAnyChildrenSearchResult } = checkChildren(option[this.childrenProp], optionObj[this.childrenProp], optionObj.isSelected)
+        const { selectedChildrenCount, isAnyChildrenSearchResult } = configureChildren(option[this.childrenProp], optionObj[this.childrenProp], optionObj.isSelected)
         optionObj.hasChildSearchResult = this.isSearching && isAnyChildrenSearchResult
         // An option can be marked that has selected children:
         //  * if at least one of its children is selected
@@ -278,11 +278,11 @@ export default {
        * @param {Boolean} [isParentSelected=false] A flag that indicates if the option that contains the given children is marked as selected.
        * @returns The count of selected children and if any children is considered a candidate for a search result.
        */
-      const checkChildren = (children, childrenList, isParentSelected = false) => {
+      const configureChildren = (children, childrenList, isParentSelected = false) => {
         let selectedChildrenCount = 0
         let isAnyChildrenSearchResult = false
         for (let i = 0; i < children.length; i++) {
-          const child = checkOption(children[i], isParentSelected)
+          const child = configureOption(children[i], isParentSelected)
           // If the configured child is marked as selected
           // then the count of selected children must be increased by 1
           if (child.isSelected) selectedChildrenCount++
@@ -300,7 +300,7 @@ export default {
 
       const list = []
       for (let i = 0; i < this.options.length; i++) {
-        list.push(checkOption(this.options[i]))
+        list.push(configureOption(this.options[i], i, 0, 0))
       }
       return list
     }
