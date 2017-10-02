@@ -5,6 +5,15 @@
       'treeselect__select': true,
       'treeselect__select--open': isOpen,
       }">
+      <!-- SELECTED OPTIONS START -->
+      <template v-for="option in selectedOptions">
+        <div :key="option.id"
+          class="treeselect__selected-option"
+          @click="selectedOptionClickHandler(option.id)">
+          {{option.label}}
+        </div>
+      </template>
+      <!-- SELECTED OPTIONS END -->
       <!-- SEARCH INPUT / PLACEHOLDER START -->
       <input v-if="searchable || !isAnyOptionSelected" 
         class="treeselect__placeholder"
@@ -408,6 +417,15 @@ export default {
       }
       this.$emit('input', Array.prototype.join.call(newValues))
       this.areOptionAnimationsEnabled = true
+    },
+    /**
+     * Handles the click of a selected option.
+     * Calls the toggle handler with the id of
+     * the clicked selected option and false
+     * as the newIsSelectedValue to unselect the option.
+     */
+    selectedOptionClickHandler (optionId) {
+      this.toggleHandler(optionId, false)
     }
   },
   watch: {
@@ -474,6 +492,19 @@ export default {
         cursor: pointer;
       }
     }
+  }
+
+  &__selected-option {
+    cursor: pointer;
+    height: 100%;
+    border-radius: $space;
+    margin-right: $space;
+    max-width: 100%;
+    padding: $space $space--l;
+    float: left;
+    font-size: inherit;
+    color: white;
+    background-color: $color-main;
   }
 
   &__dropdown {
