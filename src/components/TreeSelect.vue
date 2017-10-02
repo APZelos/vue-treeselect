@@ -1,5 +1,6 @@
 <template>
   <div class="treeselect">
+    <!-- SELECT START -->
     <div :class="{
       'clearfix': true,
       'treeselect__select': true,
@@ -25,6 +26,7 @@
         @keyup.esc="closeDropdown" />
       <!-- SEARCH INPUT / PLACEHOLDER END -->
     </div>
+    <!-- SELECT END -->
     <!-- DROPDOWN START -->
     <div v-show="isOpen" class="treeselect__dropdown">
       <template v-for="option in optionList">
