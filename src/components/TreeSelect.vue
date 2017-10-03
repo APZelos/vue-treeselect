@@ -473,8 +473,9 @@ export default {
     align-content: flex-start;
     width: 100%;
     height: 100%;
-    padding: $space $space--l 0 $space--l;
+    padding: $space $space--l #{$space - $space--s} $space--l;
     font-size: inherit;
+    line-height: inherit;
     border: 1px solid $color-lightGrey;
     border-radius: $space;
 
@@ -487,10 +488,11 @@ export default {
       flex-grow: 1;
       align-self: stretch;
       border: none;
-      margin-bottom: $space;
+      margin-bottom: $space--s;
       padding-top: $space;
       padding-bottom: $space;
       font-size: inherit;
+      line-height: inherit;
       background-color: transparent;
 
       &:disabled {
@@ -503,11 +505,12 @@ export default {
     cursor: pointer;
     border-radius: $space;
     margin-right: $space;
-    margin-bottom: $space;
+    margin-bottom: $space--s;
     max-width: 100%;
     padding: $space $space--l;
     float: left;
     font-size: inherit;
+    line-height: inherit;
     color: white;
     background-color: $color-main;
     overflow: hidden;
