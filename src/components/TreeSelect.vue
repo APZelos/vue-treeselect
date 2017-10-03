@@ -7,13 +7,15 @@
       'treeselect__select--open': isOpen,
       }">
       <!-- SELECTED OPTIONS START -->
-      <template v-for="option in selectedOptions">
-        <div :key="option.id"
-          class="treeselect__selected-option"
-          @click="selectedOptionClickHandler(option.id)">
-          {{option.label}}
-        </div>
-      </template>
+      <transition-group name="treeselect__selected-option-animation">
+        <template v-for="option in selectedOptions">
+            <div :key="option.id"
+              class="treeselect__selected-option"
+              @click="selectedOptionClickHandler(option.id)">
+              {{option.label}}
+            </div>
+        </template>
+      </transition-group>
       <!-- SELECTED OPTIONS END -->
       <!-- SEARCH INPUT / PLACEHOLDER START -->
       <input v-if="searchable || !isAnyOptionSelected" 
@@ -507,9 +509,20 @@ export default {
     font-size: inherit;
     color: white;
     background-color: $color-main;
+    overflow: hidden;
 
     &:hover {
       background-color: $color-main--dark;
+    }
+
+    &-animation {
+      &-enter-active {
+        animation: selected-option-show 0.5s ease-in;
+      }
+
+      &-leave-active {
+        animation: selected-option-hide 0.5s ease-in;
+      }
     }
   }
 
@@ -525,6 +538,37 @@ export default {
     border-top: 0;
     border-bottom-left-radius: $space;
     border-bottom-right-radius: $space;
+  }
+}
+
+@keyframes selected-option-show {
+  0% {
+    opacity: 0;
+    padding: $space 0;
+  }
+  50% {
+    opacity: 0.5;
+    padding: $space $space;
+  }
+  75% {
+    opacity: 1;
+    padding: $space #{$space--l + 2};
+  }
+  100% {
+    padding: $space $space--l;
+  }
+}
+
+@keyframes selected-option-hide {
+  0% {
+    opacity: 1;
+    padding: $space $space--l;
+  }
+  100% {
+    opacity: 0;
+    margin-right: 0; 
+    width: 0;
+    padding: $space 0;
   }
 }
 </style>
