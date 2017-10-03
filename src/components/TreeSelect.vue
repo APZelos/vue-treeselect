@@ -2,23 +2,21 @@
   <div class="treeselect">
     <!-- SELECT START -->
     <div :class="{
-      'clearfix': true,
+      //'clearfix': true,
       'treeselect__select': true,
       'treeselect__select--open': isOpen,
       }">
       <!-- SELECTED OPTIONS START -->
-      <transition-group name="treeselect__selected-option-animation">
-        <template v-for="option in selectedOptions">
-            <div :key="option.id"
-              class="treeselect__selected-option"
-              @click="selectedOptionClickHandler(option.id)">
-              {{option.label}}
-            </div>
-        </template>
-      </transition-group>
+        <div v-for="option in selectedOptions"
+          :key="option.id"
+          class="treeselect__selected-option"
+          @click="selectedOptionClickHandler(option.id)">
+          {{option.label}}
+        </div>
       <!-- SELECTED OPTIONS END -->
       <!-- SEARCH INPUT / PLACEHOLDER START -->
       <input v-if="searchable || !isAnyOptionSelected" 
+        size="1"
         class="treeselect__placeholder"
         v-model="searchQuery"
         :placeholder="searchable ? searchPlaceholder : placeholder"
@@ -457,8 +455,6 @@ export default {
   line-height: $line-height;
 
   * {
-    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
     box-sizing: border-box;
   }
 
@@ -470,9 +466,14 @@ export default {
   }
 
   &__select {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
     width: 100%;
     height: 100%;
-    padding: $space $space--l;
+    padding: $space $space--l 0 $space--l;
     font-size: inherit;
     border: 1px solid $color-lightGrey;
     border-radius: $space;
@@ -483,12 +484,12 @@ export default {
     }
 
     input.treeselect__placeholder {
+      flex-grow: 1;
+      align-self: stretch;
       border: none;
-      height: 100%;
-      max-width: 100%;
+      margin-bottom: $space;
       padding-top: $space;
       padding-bottom: $space;
-      float: left;
       font-size: inherit;
       background-color: transparent;
 
@@ -500,9 +501,9 @@ export default {
 
   &__selected-option {
     cursor: pointer;
-    height: 100%;
     border-radius: $space;
     margin-right: $space;
+    margin-bottom: $space;
     max-width: 100%;
     padding: $space $space--l;
     float: left;
@@ -510,19 +511,10 @@ export default {
     color: white;
     background-color: $color-main;
     overflow: hidden;
+    animation: selected-option-show 0.2s ease-in;
 
     &:hover {
       background-color: $color-main--dark;
-    }
-
-    &-animation {
-      &-enter-active {
-        animation: selected-option-show 0.5s ease-in;
-      }
-
-      &-leave-active {
-        animation: selected-option-hide 0.5s ease-in;
-      }
     }
   }
 
@@ -556,19 +548,6 @@ export default {
   }
   100% {
     padding: $space $space--l;
-  }
-}
-
-@keyframes selected-option-hide {
-  0% {
-    opacity: 1;
-    padding: $space $space--l;
-  }
-  100% {
-    opacity: 0;
-    margin-right: 0; 
-    width: 0;
-    padding: $space 0;
   }
 }
 </style>

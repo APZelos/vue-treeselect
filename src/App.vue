@@ -69,6 +69,78 @@ export default {
               ]
             }
           ]
+        },
+        {
+          id: 11,
+          label: '11',
+          children: [
+            {
+              id: 12,
+              label: '12'
+            },
+            {
+              id: 13,
+              label: '13',
+              children: [
+                {
+                  id: 14,
+                  label: '14'
+                },
+                {
+                  id: 15,
+                  label: '15'
+                }
+              ]
+            }
+          ]
+        },
+        {
+          id: 16,
+          label: '16',
+          children: [
+            {
+              id: 17,
+              label: '17'
+            },
+            {
+              id: 18,
+              label: '18',
+              children: [
+                {
+                  id: 19,
+                  label: '19'
+                },
+                {
+                  id: 20,
+                  label: '20'
+                }
+              ]
+            }
+          ]
+        },
+        {
+          id: 21,
+          label: '21',
+          children: [
+            {
+              id: 22,
+              label: '22'
+            },
+            {
+              id: 23,
+              label: '23',
+              children: [
+                {
+                  id: 24,
+                  label: '24'
+                },
+                {
+                  id: 25,
+                  label: '25'
+                }
+              ]
+            }
+          ]
         }
       ],
       searchable: true
