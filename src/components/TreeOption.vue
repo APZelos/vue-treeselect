@@ -306,8 +306,10 @@ export default {
     &.treeoption__label--disabled {
 
       .treeoption__indicator {
-        &--fill {
+        cursor: not-allowed !important;
         background-color: $color-grey;
+        &--fill {
+          background-color: $color-grey;
         }
       }
 
