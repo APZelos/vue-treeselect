@@ -11,7 +11,7 @@
         <div v-for="option in selectedOptions"
           :key="option.id"
           class="treeselect__selected-option"
-          @click="selectedOptionClickHandler(option.id)">
+          @click="isOpen ? selectedOptionClickHandler(option.id) : null">
           {{option.label}}
         </div>
       <!-- SELECTED OPTIONS END -->
@@ -485,6 +485,14 @@ export default {
       cursor: default;
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
+
+      .treeselect__selected-option {
+        cursor: pointer;
+
+        &:hover {
+          background-color: $color-main--dark;
+        }
+      }
     }
 
     input.treeselect__placeholder {
@@ -505,7 +513,6 @@ export default {
   }
 
   &__selected-option {
-    cursor: pointer;
     border-radius: $space;
     margin-right: $space--s;
     margin-bottom: $space--s;
@@ -518,10 +525,6 @@ export default {
     background-color: $color-main;
     overflow: hidden;
     animation: selected-option-show 0.2s ease-in;
-
-    &:hover {
-      background-color: $color-main--dark;
-    }
   }
 
   &__dropdown {
