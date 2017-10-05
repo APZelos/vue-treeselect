@@ -21,7 +21,7 @@ export default {
   data () {
     return {
       value: '2, 5, 6',
-      options: [
+      options: [ // Last id 87
         {
           id: 1,
           label: 'Annelida',
@@ -55,7 +55,7 @@ export default {
               label: 'Dorylaimida'
             },
             {
-              id: 8,
+              id: 87,
               label: 'Enoplia'
             },
             {
