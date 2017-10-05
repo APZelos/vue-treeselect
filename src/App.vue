@@ -1,6 +1,24 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
+    <div class="options center">
+      <fieldset>
+        <legend>Options</legend>
+        <label>
+          Is Searchable
+          <input 
+            type="checkbox"
+            v-model="searchable">
+        </label>
+        <label>
+          Value
+          <textarea 
+            type="text"
+            v-model="value">
+          </textarea>
+        </label>
+      </fieldset>
+    </div>
     <TreeSelect 
       class="form-control center"
       v-model="value"
@@ -423,7 +441,13 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+@import "./assets/variables.scss";
+
+* {
+  box-sizing: border-box;
+}
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -437,7 +461,53 @@ export default {
   margin: 0 auto;
 }
 
+.options,
 .form-control {
   width: 300px;
+}
+
+.options {
+  margin-top: $space--l;
+  margin-bottom: $space--l;
+
+  fieldset {
+    border: 1px solid $color-lightGrey;
+    border-radius: $space;
+
+    label,
+    input[type="text"],
+    textarea {
+      display: block;
+      width: 100%;
+      font-size: $font-size;
+      line-height: $line-height;
+    }
+
+    label {
+      margin-bottom: $space--l;
+      text-align: left;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    input[type="text"],
+    textarea {
+      padding: $space $space--l;
+      border: 1px solid $color-lightGrey;
+      border-radius: $space;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: #{ $line-height + (2 * $space--l)};
+
+    }
+  }
+
+  legend {
+    color: $color-darkGrey;
+    text-align: left;
+  }
 }
 </style>
