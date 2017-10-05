@@ -574,6 +574,7 @@ export default {
 @keyframes selected-option-show {
   0% {
     opacity: 0;
+    width: 0;
     padding: $space 0;
   }
   50% {
@@ -582,6 +583,7 @@ export default {
   }
   75% {
     opacity: 1;
+    width: auto;
     padding: $space #{$space--l + 2};
   }
   100% {
