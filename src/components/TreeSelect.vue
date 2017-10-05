@@ -5,7 +5,8 @@
       //'clearfix': true,
       'treeselect__select': true,
       'treeselect__select--open': isOpen,
-      }">
+      }"
+      @click="openDropdown">
       <!-- SELECTED OPTIONS START -->
         <div v-for="option in selectedOptions"
           :key="option.id"
