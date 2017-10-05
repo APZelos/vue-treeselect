@@ -505,8 +505,8 @@ export default {
       margin-bottom: $space--s;
       padding-top: $space;
       padding-bottom: $space;
-      font-size: inherit;
-      line-height: inherit;
+      font-size: $font-size--s;
+      line-height: $line-height--s;
       background-color: transparent;
 
       &:disabled {
@@ -547,8 +547,8 @@ export default {
     max-width: 100%;
     padding: $space $space--l;
     float: left;
-    font-size: inherit;
-    line-height: inherit;
+    font-size: $font-size--s;
+    line-height: $line-height--s;
     color: white;
     background-color: $color-main;
     overflow: hidden;
