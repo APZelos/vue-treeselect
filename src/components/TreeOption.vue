@@ -328,6 +328,10 @@ export default {
       .treeoption__indicator {
         cursor: default;
       }
+
+      .treeoption__text {
+        color: $color-grey;
+      }
     }
   }
 
