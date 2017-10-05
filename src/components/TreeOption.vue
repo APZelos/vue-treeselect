@@ -338,8 +338,8 @@ export default {
   &__indicator {
     cursor: pointer;
     float: left;
-    margin-top: 2px;
-    margin-right: $space--s;
+    margin-top: $space--s;
+    margin-right: $space;
     height: $font-size;
     width: $font-size;
     border: 1px solid $color-grey;

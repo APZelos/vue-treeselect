@@ -506,7 +506,7 @@ export default {
   &__selected-option {
     cursor: pointer;
     border-radius: $space;
-    margin-right: $space;
+    margin-right: $space--s;
     margin-bottom: $space--s;
     max-width: 100%;
     padding: $space $space--l;
