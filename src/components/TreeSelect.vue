@@ -508,6 +508,7 @@ export default {
       font-size: $font-size--s;
       line-height: $line-height--s;
       background-color: transparent;
+      text-overflow: ellipsis;
 
       &:disabled {
         cursor: pointer;
