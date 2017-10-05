@@ -18,6 +18,8 @@
         <!-- SELECTED OPTIONS END -->
         <!-- SEARCH INPUT / PLACEHOLDER START -->
         <input v-if="searchable ? (isOpen || !isAnyOptionSelected) : !isAnyOptionSelected" 
+          v-focus
+          ref="input"
           size="1"
           class="treeselect__placeholder"
           v-model="searchQuery"
@@ -439,6 +441,13 @@ export default {
       if (value) {
         this.openDropdown()
         this.areOptionAnimationsEnabled = false
+      }
+    }
+  },
+  directives: {
+    focus: {
+      inserted (el) {
+        el.focus()
       }
     }
   }
