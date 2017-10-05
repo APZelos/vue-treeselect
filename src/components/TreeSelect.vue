@@ -15,7 +15,7 @@
         </div>
       <!-- SELECTED OPTIONS END -->
       <!-- SEARCH INPUT / PLACEHOLDER START -->
-      <input v-if="searchable || !isAnyOptionSelected" 
+      <input v-if="searchable ? (isOpen || !isAnyOptionSelected) : !isAnyOptionSelected" 
         size="1"
         class="treeselect__placeholder"
         v-model="searchQuery"
