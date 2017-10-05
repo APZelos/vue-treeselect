@@ -510,8 +510,9 @@ export default {
       background-color: transparent;
       text-overflow: ellipsis;
 
-      &:disabled {
-        cursor: pointer;
+      &:focus,
+      &:active {
+        outline: none;
       }
     }
   }
