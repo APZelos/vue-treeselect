@@ -531,12 +531,13 @@ export default {
     margin-left: $space;
     width: 0;
     height: 0;
-    border-left: 7px solid transparent;
-    border-right: 7px solid transparent;
-    border-top: 10px solid black;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 9px solid $color-darkGrey;
 
     &--open {
-      transform: rotate3d(0, 0, 1, -180deg)
+      transform: rotate3d(0, 0, 1, -180deg);
+      border-top-color: $color-main;
     }
   }
   
