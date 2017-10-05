@@ -66,17 +66,6 @@ export default {
   },
   props: {
     /**
-     * The name that will be used to reference the inputs that
-     * holds the values and the data after the form submission.
-     *
-     * @type {String}
-     * @default 'values'
-     */
-    name: {
-      type: String,
-      default: 'values'
-    },
-    /**
      * A short hint that will be displayed when no value is selected.
      *
      * @type {String}
