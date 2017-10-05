@@ -7,25 +7,34 @@
       'treeselect__select--open': isOpen,
       }"
       @click="openDropdown">
-      <!-- SELECTED OPTIONS START -->
+      <div class="treeselect__flexbox">
+        <!-- SELECTED OPTIONS START -->
         <div v-for="option in selectedOptions"
           :key="option.id"
           class="treeselect__selected-option"
           @click="isOpen ? selectedOptionClickHandler(option.id) : null">
           {{option.label}}
         </div>
-      <!-- SELECTED OPTIONS END -->
-      <!-- SEARCH INPUT / PLACEHOLDER START -->
-      <input v-if="searchable ? (isOpen || !isAnyOptionSelected) : !isAnyOptionSelected" 
-        size="1"
-        class="treeselect__placeholder"
-        v-model="searchQuery"
-        :placeholder="searchable ? searchPlaceholder : placeholder"
-        :readonly="!searchable"
-        @focus="openDropdown"
-        @click="openDropdown"
-        @keyup.esc="closeDropdown" />
-      <!-- SEARCH INPUT / PLACEHOLDER END -->
+        <!-- SELECTED OPTIONS END -->
+        <!-- SEARCH INPUT / PLACEHOLDER START -->
+        <input v-if="searchable ? (isOpen || !isAnyOptionSelected) : !isAnyOptionSelected" 
+          size="1"
+          class="treeselect__placeholder"
+          v-model="searchQuery"
+          :placeholder="searchable ? searchPlaceholder : placeholder"
+          :readonly="!searchable"
+          @focus="openDropdown"
+          @click="openDropdown"
+          @keyup.esc="closeDropdown" />
+        <!-- SEARCH INPUT / PLACEHOLDER END -->
+      </div>
+      <!-- OPEN / CLOSE INDICATOR START -->
+      <div :class="{
+          'treeselect__indicator': true,
+          'treeselect__indicator--open': isOpen
+        }">
+      </div>
+      <!-- OPEN / CLOSE INDICATOR END -->
     </div>
     <!-- SELECT END -->
     <!-- DROPDOWN START -->
@@ -470,9 +479,6 @@ export default {
     cursor: pointer;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-content: flex-start;
     width: 100%;
     height: 100%;
     padding: $space $space--l #{$space - $space--s} $space--l;
@@ -496,8 +502,7 @@ export default {
     }
 
     input.treeselect__placeholder {
-      flex-grow: 1;
-      align-self: stretch;
+      width: 100%;
       border: none;
       margin-bottom: $space--s;
       padding-top: $space;
@@ -512,6 +517,31 @@ export default {
     }
   }
 
+  &__flexbox {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    flex-grow: 1;
+  }
+
+  &__indicator {
+    align-self: flex-end;
+    transition: transform 0.2s;
+    margin-bottom: $space--l;
+    margin-left: $space;
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 10px solid black;
+
+    &--open {
+      transform: rotate3d(0, 0, 1, -180deg)
+    }
+  }
+  
   &__selected-option {
     border-radius: $space;
     margin-right: $space--s;
