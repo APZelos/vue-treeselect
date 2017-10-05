@@ -466,6 +466,7 @@ export default {
   }
 
   &__select {
+    cursor: pointer;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -480,6 +481,7 @@ export default {
     border-radius: $space;
 
     &--open {
+      cursor: default;
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
     }
