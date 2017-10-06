@@ -61,10 +61,11 @@
 <script>
 import TreeOption from './TreeOption'
 import idProp from '../mixins/idProp'
+import labelProp from '../mixins/labelProp'
 
 export default {
   name: 'TreeSelect',
-  mixins: [idProp],
+  mixins: [idProp, labelProp],
   components: {
     TreeOption
   },
@@ -120,7 +121,7 @@ export default {
     search: {
       type: Function,
       default (option, searchQuery) {
-        return !!~String.prototype.indexOf.call(option[this.labelProp], searchQuery)
+        return !!~String.prototype.indexOf.call(this.getLabel(option), searchQuery)
       }
     },
     /**
@@ -135,16 +136,6 @@ export default {
     options: {
       type: Array,
       required: true
-    },
-    /**
-     * The name of the property that holds the label value of each option.
-     *
-     * @type {String}
-     * @default 'label'
-     */
-    labelProp: {
-      type: String,
-      default: 'label'
     },
     /**
      * The name of the property that holds the children array of each option,
@@ -240,7 +231,7 @@ export default {
         // that is going to be configured.
         const optionObj = {}
         this.setId(optionObj, this.getId(option))
-        optionObj[this.labelProp] = option[this.labelProp]
+        this.setLabel(optionObj, this.getLabel(option))
         optionObj[this.childrenProp] = []
         optionObj.hasChildSelected = false
         optionObj.hasChildSearchResult = false
@@ -318,7 +309,7 @@ export default {
         if (option.isSelected) {
           return list.push({
             id: this.getId(option),
-            label: option[this.labelProp]
+            label: this.getLabel(option)
           })
         }
         if (option[this.childrenProp].length > 0) {

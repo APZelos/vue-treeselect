@@ -65,10 +65,11 @@
 
 <script>
 import idProp from '../mixins/idProp'
+import labelProp from '../mixins/labelProp'
 
 export default {
   name: 'TreeOption',
-  mixins: [idProp],
+  mixins: [idProp, labelProp],
   props: {
     /**
      * The object that holds the data of the option.
@@ -77,15 +78,6 @@ export default {
      */
     option: {
       type: Object,
-      required: true
-    },
-    /**
-     * The name of the property that holds the label value of each option.
-     *
-     * @type {String}
-     */
-    labelProp: {
-      type: String,
       required: true
     },
     /**
@@ -167,7 +159,7 @@ export default {
      * The option's label value.
      */
     label () {
-      return this.option[this.labelProp]
+      return this.getLabel(this.option)
     },
     /**
      * The option's children array.
