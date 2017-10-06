@@ -343,8 +343,9 @@ export default {
      *
      * @param {Number} toggledId The id of the option that was toggled.
      * @param {Boolean} newIsSelectedValue The new value of isSelected property of the toggled option.
+     * @param {Number} rootId The id of the root option that contains the toggled option.
      */
-    toggleHandler (toggledId, newIsSelectedValue) {
+    toggleHandler (toggledId, newIsSelectedValue, rootId) {
       /**
        * Gets an option and if after the validations can
        * be considered selected adds its id to the new values.

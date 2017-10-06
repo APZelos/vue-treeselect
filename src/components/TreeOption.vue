@@ -236,7 +236,7 @@ export default {
      * @param {Boolean} newIsSelectedValue The new value of isSelected property of the toggled option.
      */
     toggleHandler (id, newIsSelectedValue) {
-      this.$emit('toggle', id, newIsSelectedValue)
+      this.$emit('toggle', id, newIsSelectedValue, this.id)
     }
   },
   watch: {
