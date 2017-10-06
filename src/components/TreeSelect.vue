@@ -428,6 +428,9 @@ export default {
     }
   },
   directives: {
+    /**
+     * When used by an element forces it to get focused after it gets inserted in the DOM
+     */
     focus: {
       inserted (el) {
         el.focus()
