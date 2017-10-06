@@ -329,6 +329,7 @@ export default {
      */
     closeDropdown () {
       this.isOpen = false
+      this.searchQuery = ''
       this.areOptionAnimationsEnabled = false
     },
     /**
