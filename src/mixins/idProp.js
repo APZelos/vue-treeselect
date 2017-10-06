@@ -20,6 +20,16 @@ export default {
      */
     getId (option) {
       return option[this.idProp]
+    },
+    /**
+     * Gets an option and changes its
+     * id value with the given value.
+     *
+     * @param {any} option The option which id we want to set.
+     * @param {any} value The new id value.
+     */
+    setId (option, value) {
+      option[this.idProp] = value
     }
   }
 }
