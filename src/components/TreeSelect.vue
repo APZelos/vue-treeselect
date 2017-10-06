@@ -225,10 +225,14 @@ export default {
         this.setChildren(optionObj, [])
         optionObj.hasChildSelected = false
         optionObj.hasChildSearchResult = false
+        let index = Array.prototype.indexOf.call(this.values, this.getId(optionObj))
         // An option is considered selected when its id value is included in the values array
         // or its parent is marked as selected.
         // (because the selection of an option that has children indicates the selection of all of its children)
-        optionObj.isSelected = isParentSelected || Array.prototype.includes.call(this.values, this.getId(optionObj))
+        optionObj.isSelected = isParentSelected || !!~index
+        // If the option is selected sets its position as the index
+        // of the option's id in the array of the selected values
+        if (optionObj.isSelected) optionObj.position = index
         // An option is considered a candidate for a search result if the search function returns true.
         optionObj.isSearchResult = this.isSearching && this.search(optionObj, this.searchQuery)
         // If the option doesn't contain any children
