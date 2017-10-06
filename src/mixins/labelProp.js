@@ -7,7 +7,7 @@ export default {
      */
     labelProp: {
       type: String,
-      required: true
+      default: 'label'
     }
   },
   methods: {
