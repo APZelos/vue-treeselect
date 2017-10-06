@@ -64,8 +64,11 @@
 </template>
 
 <script>
+import idProp from '../mixins/idProp'
+
 export default {
   name: 'TreeOption',
+  mixins: [idProp],
   props: {
     /**
      * The object that holds the data of the option.
@@ -74,15 +77,6 @@ export default {
      */
     option: {
       type: Object,
-      required: true
-    },
-    /**
-     * The name of the property that holds the identifier value of each option.
-     *
-     * @type {String}
-     */
-    idProp: {
-      type: String,
       required: true
     },
     /**
@@ -167,7 +161,7 @@ export default {
      * The option's id value.
      */
     id () {
-      return this.option[this.idProp]
+      return this.getId(this.option)
     },
     /**
      * The option's label value.
