@@ -239,7 +239,7 @@ export default {
         // Creates a copy of the option
         // that is going to be configured.
         const optionObj = {}
-        optionObj[this.idProp] = this.getId(option)
+        this.setId(optionObj, this.getId(option))
         optionObj[this.labelProp] = option[this.labelProp]
         optionObj[this.childrenProp] = []
         optionObj.hasChildSelected = false
