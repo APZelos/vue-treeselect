@@ -137,16 +137,6 @@ export default {
       required: true
     },
     /**
-     * The name of the property that holds the identifier value of each option.
-     *
-     * @type {String}
-     * @default 'id'
-     */
-    idProp: {
-      type: String,
-      default: 'id'
-    },
-    /**
      * The name of the property that holds the label value of each option.
      *
      * @type {String}
@@ -249,7 +239,7 @@ export default {
         // Creates a copy of the option
         // that is going to be configured.
         const optionObj = {}
-        optionObj[this.idProp] = option[this.idProp]
+        optionObj[this.idProp] = this.getId(option)
         optionObj[this.labelProp] = option[this.labelProp]
         optionObj[this.childrenProp] = []
         optionObj.hasChildSelected = false
@@ -257,7 +247,7 @@ export default {
         // An option is considered selected when its id value is included in the values array
         // or its parent is marked as selected.
         // (because the selection of an option that has children indicates the selection of all of its children)
-        optionObj.isSelected = isParentSelected || Array.prototype.includes.call(this.values, optionObj[this.idProp])
+        optionObj.isSelected = isParentSelected || Array.prototype.includes.call(this.values, this.getId(optionObj))
         // An option is considered a candidate for a search result if the search function returns true.
         optionObj.isSearchResult = this.isSearching && this.search(optionObj, this.searchQuery)
         // If the option doesn't contain any children
@@ -327,7 +317,7 @@ export default {
       const checkOption = (option) => {
         if (option.isSelected) {
           return list.push({
-            id: option[this.idProp],
+            id: this.getId(option),
             label: option[this.labelProp]
           })
         }
@@ -382,9 +372,9 @@ export default {
         // An options is considered toggled if:
         //  * its id is the same as the id of the option that fired the event
         //  * its parent is marked as toggled
-        let isToggled = option[this.idProp] === toggledId || isParentToggled
+        let isToggled = this.getId(option) === toggledId || isParentToggled
         // Checks if this option was selected before the toggled event was fired.
-        let isOptionIdInOldValues = Array.prototype.includes.call(this.values, option[this.idProp])
+        let isOptionIdInOldValues = Array.prototype.includes.call(this.values, this.getId(option))
         // An option can be considered selected if:
         //  * it's marked as toggled and the newIsSelectedValue is true
         //  * its parent is marked as selected
@@ -396,7 +386,7 @@ export default {
         // selected only if all of its children are marked
         // as selected after the toggle event.
         if (option[this.childrenProp]) isSelected = checkChildren(option[this.childrenProp], isToggled, isSelected)
-        if (isSelected) newValues.push(option[this.idProp])
+        if (isSelected) newValues.push(this.getId(option))
         return isSelected
       }
 
