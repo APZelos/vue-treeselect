@@ -60,9 +60,11 @@
 
 <script>
 import TreeOption from './TreeOption'
+import idProp from '../mixins/idProp'
 
 export default {
   name: 'TreeSelect',
+  mixins: [idProp],
   components: {
     TreeOption
   },
