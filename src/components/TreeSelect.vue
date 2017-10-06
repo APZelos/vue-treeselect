@@ -43,7 +43,7 @@
     <div v-show="isOpen" class="treeselect__dropdown">
       <template v-for="option in optionList">
         <TreeOption 
-        :key="option[idProp]"
+        :key="getId(option)"
         :option="option"
         :idProp="idProp"
         :labelProp="labelProp"
