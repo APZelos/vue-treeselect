@@ -66,10 +66,11 @@
 <script>
 import idProp from '../mixins/idProp'
 import labelProp from '../mixins/labelProp'
+import childrenProp from '../mixins/childrenProp'
 
 export default {
   name: 'TreeOption',
-  mixins: [idProp, labelProp],
+  mixins: [idProp, labelProp, childrenProp],
   props: {
     /**
      * The object that holds the data of the option.
@@ -78,16 +79,6 @@ export default {
      */
     option: {
       type: Object,
-      required: true
-    },
-    /**
-     * The name of the property that holds the children array of each option,
-     * if the option has any children.
-     *
-     * @type {String}
-     */
-    childrenProp: {
-      type: String,
       required: true
     },
     /**
@@ -166,8 +157,8 @@ export default {
      * If no childrenProp is defined in option returns an empty array.
      */
     children () {
-      if (!this.option[this.childrenProp]) return []
-      return this.option[this.childrenProp]
+      if (!this.getChildren(this.option)) return []
+      return this.getChildren(this.option)
     },
     /**
      * Indicates if the option contains any children.

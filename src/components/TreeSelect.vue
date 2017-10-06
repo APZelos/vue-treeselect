@@ -62,10 +62,11 @@
 import TreeOption from './TreeOption'
 import idProp from '../mixins/idProp'
 import labelProp from '../mixins/labelProp'
+import childrenProp from '../mixins/childrenProp'
 
 export default {
   name: 'TreeSelect',
-  mixins: [idProp, labelProp],
+  mixins: [idProp, labelProp, childrenProp],
   components: {
     TreeOption
   },
@@ -136,17 +137,6 @@ export default {
     options: {
       type: Array,
       required: true
-    },
-    /**
-     * The name of the property that holds the children array of each option,
-     * if the option has any children.
-     *
-     * @type {String}
-     * @default 'children'
-     */
-    childrenProp: {
-      type: String,
-      default: 'children'
     },
     /**
      * Holds the selected value,
@@ -232,7 +222,7 @@ export default {
         const optionObj = {}
         this.setId(optionObj, this.getId(option))
         this.setLabel(optionObj, this.getLabel(option))
-        optionObj[this.childrenProp] = []
+        this.setChildren(optionObj, [])
         optionObj.hasChildSelected = false
         optionObj.hasChildSearchResult = false
         // An option is considered selected when its id value is included in the values array
@@ -243,9 +233,9 @@ export default {
         optionObj.isSearchResult = this.isSearching && this.search(optionObj, this.searchQuery)
         // If the option doesn't contain any children
         // no further configuration needs to be made.
-        const childrenCount = Object.prototype.hasOwnProperty.call(option, this.childrenProp) && option[this.childrenProp].length
+        const childrenCount = this.getChildren(option) && this.getChildren(option).length
         if (!childrenCount) return optionObj
-        const { selectedChildrenCount, isAnyChildrenSearchResult } = configureChildren(option[this.childrenProp], optionObj[this.childrenProp], optionObj.isSelected)
+        const { selectedChildrenCount, isAnyChildrenSearchResult } = configureChildren(this.getChildren(option), this.getChildren(optionObj), optionObj.isSelected)
         optionObj.hasChildSearchResult = this.isSearching && isAnyChildrenSearchResult
         // An option can be marked that has selected children:
         //  * if at least one of its children is selected
@@ -312,9 +302,9 @@ export default {
             label: this.getLabel(option)
           })
         }
-        if (option[this.childrenProp].length > 0) {
-          for (let i = 0; i < option[this.childrenProp].length; i++) {
-            checkOption(option[this.childrenProp][i])
+        if (this.getChildren(option).length > 0) {
+          for (let i = 0; i < this.getChildren(option).length; i++) {
+            checkOption(this.getChildren(option)[i])
           }
         }
       }
@@ -376,7 +366,7 @@ export default {
         // If the option has children it can be considered
         // selected only if all of its children are marked
         // as selected after the toggle event.
-        if (option[this.childrenProp]) isSelected = checkChildren(option[this.childrenProp], isToggled, isSelected)
+        if (this.getChildren(option)) isSelected = checkChildren(this.getChildren(option), isToggled, isSelected)
         if (isSelected) newValues.push(this.getId(option))
         return isSelected
       }
