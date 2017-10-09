@@ -303,7 +303,8 @@ export default {
         if (option.isSelected) {
           return list.push({
             id: this.getId(option),
-            label: this.getLabel(option)
+            label: this.getLabel(option),
+            position: this.values.indexOf(this.getId(option))
           })
         }
         if (this.getChildren(option).length > 0) {
