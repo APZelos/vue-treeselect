@@ -318,6 +318,9 @@ export default {
       for (let i = 0; i < this.optionList.length; i++) {
         checkOption(this.optionList[i])
       }
+      list.sort((optionA, optionB) => {
+        return optionA.position - optionB.position
+      })
       return list
     }
   },
