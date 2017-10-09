@@ -10,6 +10,7 @@
       <div class="treeselect__flexbox">
         <!-- SELECTED OPTIONS START -->
         <div v-for="option in selectedOptions"
+          v-show="option.show"
           :key="option.id"
           class="treeselect__selected-option"
           @click="isOpen ? selectedOptionClickHandler(option.id) : null">
@@ -299,17 +300,18 @@ export default {
        *
        * @param {Object} option The option we want to check.
        */
-      const checkOption = (option) => {
+      const checkOption = (option, isParentSelected) => {
         if (option.isSelected) {
-          return list.push({
+          list.push({
             id: this.getId(option),
             label: this.getLabel(option),
-            position: this.values.indexOf(this.getId(option))
+            position: this.values.indexOf(this.getId(option)),
+            show: !isParentSelected
           })
         }
         if (this.getChildren(option).length > 0) {
           for (let i = 0; i < this.getChildren(option).length; i++) {
-            checkOption(this.getChildren(option)[i])
+            checkOption(this.getChildren(option)[i], option.isSelected)
           }
         }
       }
