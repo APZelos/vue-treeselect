@@ -361,12 +361,6 @@ export default {
        */
       const checkOption = (option, isParentToggled, isParentSelected) => {
         let optionId = this.getId(option)
-        // Removes the id of the current option from
-        // the newValues if exist. That way the options
-        // that are effected from the toggle will be then
-        // added to the end of the list.
-        let index = newValues.indexOf(optionId)
-        if (~index) newValues.splice(index, 1)
         // An options is considered toggled if:
         //  * its id is the same as the id of the option that fired the event
         //  * its parent is marked as toggled
@@ -384,7 +378,15 @@ export default {
         // selected only if all of its children are marked
         // as selected after the toggle event.
         if (this.getChildren(option)) isSelected = checkChildren(this.getChildren(option), isToggled, isSelected)
-        if (isSelected) newValues.push(optionId)
+        // Removes the id of the current option from
+        // the newValues if is effected by the toggled option.
+        if (isToggled ||
+          (isSelected && !isOptionIdInOldValues) ||
+          (!isSelected && isOptionIdInOldValues)) {
+          let index = newValues.indexOf(optionId)
+          if (~index) newValues.splice(index, 1)
+        }
+        if (isSelected && !isOptionIdInOldValues) newValues.push(optionId)
         return isSelected
       }
 
