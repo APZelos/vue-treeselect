@@ -13,7 +13,7 @@
           v-show="option.show"
           :key="option.id"
           class="treeselect__selected-option"
-          @click="isOpen ? selectedOptionClickHandler(option.id) : null">
+          @click="isOpen ? selectedOptionClickHandler(option.id, option.rootId) : null">
           {{option.label}}
         </div>
         <!-- SELECTED OPTIONS END -->
@@ -425,8 +425,8 @@ export default {
      * the clicked selected option and false
      * as the newIsSelectedValue to unselect the option.
      */
-    selectedOptionClickHandler (optionId) {
-      this.toggleHandler(optionId, false)
+    selectedOptionClickHandler (optionId, rootId) {
+      this.toggleHandler(optionId, false, rootId)
     }
   },
   watch: {
