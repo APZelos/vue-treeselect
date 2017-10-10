@@ -300,26 +300,28 @@ export default {
        *
        * @param {Object} option The option we want to check.
        * @param {Boolean} isParentSelected Indicates if the that contains current option is selected.
+       * @param {Number} rootId The id of the root option that contains the selected option.
        */
-      const checkOption = (option, isParentSelected) => {
+      const checkOption = (option, isParentSelected, rootId) => {
         if (option.isSelected) {
           list.push({
             id: this.getId(option),
             label: this.getLabel(option),
             position: this.values.indexOf(this.getId(option)),
-            show: !isParentSelected
+            show: !isParentSelected,
+            rootId
           })
         }
         if (this.getChildren(option).length > 0) {
           for (let i = 0; i < this.getChildren(option).length; i++) {
-            checkOption(this.getChildren(option)[i], option.isSelected)
+            checkOption(this.getChildren(option)[i], option.isSelected, rootId)
           }
         }
       }
 
       const list = []
       for (let i = 0; i < this.optionList.length; i++) {
-        checkOption(this.optionList[i])
+        checkOption(this.optionList[i], false, this.getId(this.optionList[i]))
       }
       list.sort((optionA, optionB) => {
         return optionA.position - optionB.position
