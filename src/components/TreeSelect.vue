@@ -382,8 +382,7 @@ export default {
         if (this.getChildren(option)) isSelected = checkChildren(this.getChildren(option), isToggled, isSelected)
         // Removes the id of the current option from
         // the newValues if is effected by the toggled option.
-        if (isToggled ||
-          (isSelected && !isOptionIdInOldValues) ||
+        if ((isSelected && !isOptionIdInOldValues) ||
           (!isSelected && isOptionIdInOldValues)) {
           let index = newValues.indexOf(optionId)
           if (~index) newValues.splice(index, 1)
