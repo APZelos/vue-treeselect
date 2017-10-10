@@ -299,6 +299,7 @@ export default {
        *  * If it's not marked selected and the option contains children we check them.
        *
        * @param {Object} option The option we want to check.
+       * @param {Boolean} isParentSelected Indicates if the that contains current option is selected.
        */
       const checkOption = (option, isParentSelected) => {
         if (option.isSelected) {
