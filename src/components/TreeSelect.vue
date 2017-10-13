@@ -9,13 +9,13 @@
       @click="openDropdown">
       <div class="treeselect__flexbox">
         <!-- SELECTED OPTIONS START -->
-        <div v-for="option in selectedOptions"
-          v-show="option.show"
+        <TreeSelectedOption
+          v-for="option in selectedOptions"
+          :option="option"
           :key="option.id"
-          class="treeselect__selected-option"
-          @click="isOpen ? selectedOptionClickHandler(option.id, option.rootId) : null">
-          {{option.label}}
-        </div>
+          :hasDeleteButton="true"
+          @delete="isOpen ? selectedOptionClickHandler(option.id, option.rootId) : null"
+        />
         <!-- SELECTED OPTIONS END -->
         <!-- SEARCH INPUT / PLACEHOLDER START -->
         <input v-if="searchable ? (isOpen || !isAnyOptionSelected) : !isAnyOptionSelected" 
@@ -61,6 +61,7 @@
 
 <script>
 import TreeOption from './TreeOption'
+import TreeSelectedOption from './TreeSelectedOption'
 import idProp from '../mixins/idProp'
 import labelProp from '../mixins/labelProp'
 import childrenProp from '../mixins/childrenProp'
@@ -69,7 +70,8 @@ export default {
   name: 'TreeSelect',
   mixins: [idProp, labelProp, childrenProp],
   components: {
-    TreeOption
+    TreeOption,
+    TreeSelectedOption
   },
   props: {
     /**
@@ -490,14 +492,6 @@ export default {
       cursor: default;
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
-
-      .treeselect__selected-option {
-        cursor: pointer;
-
-        &:hover {
-          background-color: $color-main--dark;
-        }
-      }
     }
 
     input.treeselect__placeholder {
@@ -543,21 +537,6 @@ export default {
       border-top-color: $color-main;
     }
   }
-  
-  &__selected-option {
-    border-radius: $space;
-    margin-right: $space--s;
-    margin-bottom: $space--s;
-    max-width: 100%;
-    padding: $space $space--l;
-    float: left;
-    font-size: $font-size--s;
-    line-height: $line-height--s;
-    color: white;
-    background-color: $color-main;
-    overflow: hidden;
-    animation: selected-option-show 0.2s ease-in;
-  }
 
   &__dropdown {
     overflow: auto;
@@ -571,26 +550,6 @@ export default {
     border-top: 0;
     border-bottom-left-radius: $space;
     border-bottom-right-radius: $space;
-  }
-}
-
-@keyframes selected-option-show {
-  0% {
-    opacity: 0;
-    width: 0;
-    padding: $space 0;
-  }
-  50% {
-    opacity: 0.5;
-    padding: $space $space;
-  }
-  75% {
-    opacity: 1;
-    width: auto;
-    padding: $space #{$space--l + 2};
-  }
-  100% {
-    padding: $space $space--l;
   }
 }
 </style>
