@@ -121,7 +121,7 @@ export default {
   }
 
   &-enter-active {
-    transition: max-width 0.2s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+    transition: max-width 0.3s cubic-bezier(0.95, 0.05, 0.795, 0.035);
   }
 
   
