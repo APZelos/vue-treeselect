@@ -125,7 +125,7 @@ export default {
     search: {
       type: Function,
       default (option, searchQuery) {
-        return !!~String.prototype.indexOf.call(this.getLabel(option), searchQuery)
+        return !!~String.prototype.indexOf.call(this.getLabel(option).toLowerCase(), searchQuery.toLowerCase())
       }
     },
     /**
