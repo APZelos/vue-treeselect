@@ -563,6 +563,8 @@ export default {
     border-top: 0;
     border-bottom-left-radius: $space;
     border-bottom-right-radius: $space;
+    background-color: white;
+    z-index: 100;
   }
 }
 </style>
