@@ -2,6 +2,13 @@
   <div id="app">
     <img src="./assets/logo.png">
     <h1 class="title">TreeSelect</h1>
+    <TreeSelect 
+      class="form-control center"
+      v-model="value"
+      :searchable="searchable"
+      :hasDeleteButton="hasDeleteButton"
+      :options="options">
+    </TreeSelect>
     <div class="options center">
       <fieldset>
         <legend>Options</legend>
@@ -26,13 +33,6 @@
         </label>
       </fieldset>
     </div>
-    <TreeSelect 
-      class="form-control center"
-      v-model="value"
-      :searchable="searchable"
-      :hasDeleteButton="hasDeleteButton"
-      :options="options">
-    </TreeSelect>
   </div>
 </template>
 
