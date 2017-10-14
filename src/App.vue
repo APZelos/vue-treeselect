@@ -11,6 +11,12 @@
             v-model="searchable">
         </label>
         <label>
+          Has Delete Button
+          <input 
+            type="checkbox"
+            v-model="hasDeleteButton">
+        </label>
+        <label>
           Value
           <textarea 
             type="text"
@@ -23,6 +29,7 @@
       class="form-control center"
       v-model="value"
       :searchable="searchable"
+      :hasDeleteButton="hasDeleteButton"
       :options="options">
     </TreeSelect>
   </div>
@@ -435,7 +442,8 @@ export default {
           ]
         }
       ],
-      searchable: true
+      searchable: true,
+      hasDeleteButton: false
     }
   }
 }
