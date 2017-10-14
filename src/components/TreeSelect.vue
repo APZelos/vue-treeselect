@@ -497,6 +497,7 @@ export default {
     input.treeselect__placeholder {
       flex-grow: 1;
       border: none;
+      margin-top: 0;
       margin-bottom: $space--s;
       padding-top: $space;
       padding-bottom: $space;
