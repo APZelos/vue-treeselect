@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
+    <h1 class="title">TreeSelect</h1>
     <div class="options center">
       <fieldset>
         <legend>Options</legend>
@@ -472,6 +473,10 @@ export default {
 .options,
 .form-control {
   width: 300px;
+}
+
+.title {
+  color: $color-main;
 }
 
 .options {
