@@ -13,7 +13,7 @@
           v-for="option in selectedOptions"
           :option="option"
           :key="option.id"
-          :hasDeleteButton="true"
+          :hasDeleteButton="hasDeleteButton"
           @delete="isOpen ? selectedOptionClickHandler(option.id, option.rootId) : null"
         />
         <!-- SELECTED OPTIONS END -->
@@ -103,6 +103,18 @@ export default {
     searchable: {
       type: Boolean,
       default: true
+    },
+    /**
+     * Indicates if the selected options
+     * will have a dedicated delete button
+     * or if they will be deleted by clicking on them.
+     *
+     * @type {Boolean}
+     * @default false
+     */
+    hasDeleteButton: {
+      type: Boolean,
+      default: false
     },
     /**
      * A short hint that will be displayed before a search query is given.
