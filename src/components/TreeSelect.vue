@@ -537,7 +537,7 @@ export default {
   &__indicator {
     align-self: flex-end;
     transition: transform 0.2s;
-    margin-bottom: $space--l;
+    margin-bottom: 7px;
     margin-left: $space;
     width: 0;
     height: 0;
