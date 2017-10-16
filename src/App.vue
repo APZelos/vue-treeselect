@@ -7,6 +7,7 @@
       v-model="value"
       :searchable="searchable"
       :hasDeleteButton="hasDeleteButton"
+      :hasClearButton="hasClearButton"
       :options="options">
     </TreeSelect>
     <div class="options center">
@@ -23,6 +24,13 @@
           <input 
             type="checkbox"
             v-model="hasDeleteButton">
+        </label>
+        </label>
+        <label>
+          Has Clear Button
+          <input 
+            type="checkbox"
+            v-model="hasClearButton">
         </label>
         <label>
           Value
@@ -444,7 +452,8 @@ export default {
         }
       ],
       searchable: true,
-      hasDeleteButton: false
+      hasDeleteButton: false,
+      hasClearButton: false
     }
   }
 }
