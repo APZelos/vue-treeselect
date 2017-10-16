@@ -117,6 +117,17 @@ export default {
       default: false
     },
     /**
+     * Indicates if there will be a clear all 
+     * selected options button.
+     *
+     * @type {Boolean}
+     * @default false
+     */
+    hasClearButton: {
+      type: Boolean,
+      default: false
+    }
+    /**
      * A short hint that will be displayed before a search query is given.
      *
      * @type {String}
