@@ -31,6 +31,11 @@
           @keyup.esc="closeDropdown" />
         <!-- SEARCH INPUT / PLACEHOLDER END -->
       </div>
+      <!-- CLEAR BUTTON START -->
+      <div v-if="hasClearButton"
+        class="treeselect__clear-button"
+        @click="clearButtonClick()">&#10006;</div>
+      <!-- CLEAR BUTTON END -->
       <!-- OPEN / CLOSE INDICATOR START -->
       <div :class="{
           'treeselect__indicator': true,
@@ -117,7 +122,7 @@ export default {
       default: false
     },
     /**
-     * Indicates if there will be a clear all 
+     * Indicates if there will be a clear all
      * selected options button.
      *
      * @type {Boolean}
@@ -126,7 +131,7 @@ export default {
     hasClearButton: {
       type: Boolean,
       default: false
-    }
+    },
     /**
      * A short hint that will be displayed before a search query is given.
      *
@@ -452,6 +457,13 @@ export default {
      */
     selectedOptionClickHandler (optionId, rootId) {
       this.toggleHandler(optionId, false, rootId)
+    },
+    /**
+     * Handles the click of the clear button.
+     * Emits an input event with empty value.
+     */
+    clearButtonClick () {
+      this.$emit('input', '')
     }
   },
   watch: {
@@ -545,11 +557,23 @@ export default {
     flex-grow: 1;
   }
 
-  &__indicator {
+  &__clear-button,
+  &__indicator { 
     align-self: flex-end;
-    transition: transform 0.2s;
-    margin-bottom: 7px;
     margin-left: $space;
+  }
+
+  &__clear-button {
+    cursor: pointer;
+    margin-bottom: $space;
+    font-size: $font_size--s;
+    line-height: $font_size--s;
+    color: $color-grey;
+  }
+
+  &__indicator {
+    margin-bottom: 7px;
+    transition: transform 0.2s;
     width: 0;
     height: 0;
     border-left: 6px solid transparent;
