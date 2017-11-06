@@ -153,7 +153,9 @@ export default {
     search: {
       type: Function,
       default (option, searchQuery) {
-        return !!~String.prototype.indexOf.call(this.getLabel(option).toLowerCase(), searchQuery.toLowerCase())
+        let optionLabelLowerCase = this.getLabel(option).toLowerCase()
+        let searchQueryLowerCase = searchQuery.toLowerCase()
+        return !!~optionLabelLowerCase.indexOf(searchQueryLowerCase)
       }
     },
     /**
@@ -222,7 +224,7 @@ export default {
      * produced from the given value.
      */
     values () {
-      if (typeof this.value === 'string') return String.prototype.split.call(this.value, ',').map(Number)
+      if (typeof this.value === 'string') return this.value.split(',').map(Number)
       if (Array.isArray(this.value)) return this.value
       return []
     },
@@ -256,7 +258,7 @@ export default {
         this.setChildren(optionObj, [])
         optionObj.hasChildSelected = false
         optionObj.hasChildSearchResult = false
-        let index = Array.prototype.indexOf.call(this.values, this.getId(optionObj))
+        let index = this.values.indexOf(this.getId(optionObj))
         // An option is considered selected when its id value is included in the values array
         // or its parent is marked as selected.
         // (because the selection of an option that has children indicates the selection of all of its children)
@@ -401,7 +403,7 @@ export default {
         //  * its parent is marked as toggled
         let isToggled = optionId === toggledId || isParentToggled
         // Checks if this option was selected before the toggled event was fired.
-        let isOptionIdInOldValues = Array.prototype.includes.call(this.values, optionId)
+        let isOptionIdInOldValues = this.values.includes(optionId)
         // An option can be considered selected if:
         //  * it's marked as toggled and the newIsSelectedValue is true
         //  * its parent is marked as selected
@@ -442,11 +444,11 @@ export default {
 
       let newValues = [...this.values]
       // Finds the root option that contains the toggled option.
-      let rootOption = Array.prototype.find.call(this.options, (option) => {
+      let rootOption = this.options.find(option => {
         return this.getId(option) === rootId
       })
       checkOption(rootOption, false, false)
-      this.$emit('input', Array.prototype.join.call(newValues))
+      this.$emit('input', newValues.join())
       this.areOptionAnimationsEnabled = true
     },
     /**
