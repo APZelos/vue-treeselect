@@ -1,4 +1,3 @@
-import vueTreeselect from './components/hello'
-import './styles/lib.scss'
+import TreeSelect from './components/TreeSelect'
 
-export default vueTreeselect
+export default TreeSelect
