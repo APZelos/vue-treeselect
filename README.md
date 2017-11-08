@@ -2,7 +2,10 @@
 
 > A tree structure multi-select drop-down component.
 
-## Build Setup
+## Demo
+Go to the live [demo](https://apzelos.github.io/vue-treeselect/)
+
+## Build
 
 ``` bash
 # install dependencies
@@ -13,15 +16,8 @@ npm run dev
 
 # build for production with minification
 npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run all tests
-npm test
 ```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## TODO
+  * Documentation
+  * Publish on npm
