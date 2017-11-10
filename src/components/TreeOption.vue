@@ -325,6 +325,8 @@ export default {
     &--fill {
       border: none;
       background-color: $color-main;
+      background: -webkit-linear-gradient(to top, #009688, $color-main);
+      background: linear-gradient(to top, #009688, $color-main);
     }
 
     &--animated {
@@ -352,6 +354,8 @@ export default {
         height: #{$font-size - 2};
         border: 2px solid $color-lightGrey;
         background-color: $color-main;
+        background: -webkit-linear-gradient(to top, #009688, $color-main);
+        background: linear-gradient(to top, #009688, $color-main);
       }
     }
   }
