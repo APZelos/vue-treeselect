@@ -6,6 +6,8 @@ $space--l: 10px;
 // COLORS
 $color-main: #41b883;
 $color-main--dark: #338c64;
+$color-gradient: linear-gradient(to top, #009688, $color-main);
+$color-gradient-webkit: -webkit-linear-gradient(to top, #009688, $color-main);
 $color-background: #f5f5f5;
 $color-grey: #CCCCCC; 
 $color-lightGrey: #E6E6E6; 

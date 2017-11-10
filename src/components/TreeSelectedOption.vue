@@ -85,8 +85,8 @@ export default {
   white-space: nowrap;
 
   background-color: $color-main;
-  background: -webkit-linear-gradient(to top, #009688, $color-main);
-  background: linear-gradient(to top, #009688, $color-main);
+  background: $color-gradient-webkit;
+  background: $color-gradient;
 
 
   &:hover {
