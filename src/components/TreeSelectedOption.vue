@@ -84,8 +84,13 @@ export default {
   overflow: hidden;
   white-space: nowrap;
 
+  background-color: $color-main;
+  background: -webkit-linear-gradient(to top, #009688, $color-main);
+  background: linear-gradient(to top, #009688, $color-main);
+
+
   &:hover {
-    background-color: $color-main--dark;
+    background: $color-main--dark;
   }
 
   &__label {
@@ -104,7 +109,7 @@ export default {
     padding: $space--s  #{$space + 1} $space--s $space;
 
     &:hover {
-      background-color: $color-main--dark;
+      background: $color-main--dark;
     }
   }
 
