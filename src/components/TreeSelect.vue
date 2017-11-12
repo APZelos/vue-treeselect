@@ -1,5 +1,6 @@
 <template>
-  <div class="treeselect">
+  <div class="treeselect"
+    v-click-outside="clickOutsideHandler">
     <!-- SELECT START -->
     <div :class="{
       //'clearfix': true,
@@ -466,6 +467,13 @@ export default {
      */
     clearButtonClick () {
       this.$emit('input', '')
+    },
+    /**
+     * Handles the click outside the component to close the dropdown.
+     * @param {Object} event The event object.
+     */
+    clickOutsideHandler (event) {
+      this.closeDropdown()
     }
   },
   watch: {
@@ -488,6 +496,33 @@ export default {
     focus: {
       inserted (el) {
         el.focus()
+      }
+    },
+    'click-outside': {
+      bind (el, binding, vNode) {
+        // Directive binding must be a function
+        if (typeof binding.value !== 'function') {
+          let warning = `[Vue-click-outside:] provided expression '${binding.expression}' must be a function.`
+          const componentName = vNode.context.name
+          if (componentName) warning += ` Component: ${componentName}.`
+          console.warn(warning)
+        }
+        // The event handler propagates
+        // the event if the clicked element
+        // is not inside the component and is not
+        // the component its self.
+        const handler = (event) => {
+          if (!el.contains(event.target) &&
+          el !== event.target &&
+          // Checks that the clicked element is on a selected option
+          // because when a selected option is clicked is removed from the DOM
+          // and the el does not contains the clicked selected option witch
+          // leads to the dropdown closing when clicking a selected option.
+          !event.target.className.includes('treeselected')) binding.value(event)
+        }
+
+        el.__vueClickOutside__ = handler
+        document.addEventListener('click', handler)
       }
     }
   }
