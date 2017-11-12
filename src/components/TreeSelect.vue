@@ -47,20 +47,22 @@
     </div>
     <!-- SELECT END -->
     <!-- DROPDOWN START -->
-    <div v-show="isOpen" class="treeselect__dropdown">
-      <template v-for="option in optionList">
-        <TreeOption 
-        :key="getId(option)"
-        :option="option"
-        :idProp="idProp"
-        :labelProp="labelProp"
-        :childrenProp="childrenProp"
-        :isSearching="isSearching"
-        :areAnimationsEnabled="areOptionAnimationsEnabled"
-        @toggle="toggleHandler">
-        </TreeOption>
-      </template>
-    </div>
+    <transition name="treeselect__dropdown">
+      <div v-show="isOpen" class="treeselect__dropdown">
+        <template v-for="option in optionList">
+          <TreeOption 
+          :key="getId(option)"
+          :option="option"
+          :idProp="idProp"
+          :labelProp="labelProp"
+          :childrenProp="childrenProp"
+          :isSearching="isSearching"
+          :areAnimationsEnabled="areOptionAnimationsEnabled"
+          @toggle="toggleHandler">
+          </TreeOption>
+        </template>
+      </div>
+    </transition>
     <!-- DROPDOWN END -->
   </div>
 </template>
@@ -637,6 +639,24 @@ export default {
     border-bottom-right-radius: $space;
     background-color: white;
     z-index: 100;
+
+    &-enter {
+      max-height: 0;
+      opacity: 0;
+    }
+
+    &-enter-active {
+      transition: max-height 0.5s ease-out;
+    }
+
+    
+    &-leave-to {
+      max-height: 0;
+    }
+
+    &-leave-active {
+      transition: max-height 0.5s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+    }
   }
 }
 </style>
